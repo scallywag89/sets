@@ -1,0 +1,2 @@
+class SetTracksController < ApplicationController
+end

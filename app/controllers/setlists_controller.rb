@@ -1,0 +1,2 @@
+class SetlistsController < ApplicationController
+end

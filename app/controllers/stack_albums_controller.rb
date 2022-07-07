@@ -1,0 +1,2 @@
+class StackAlbumsController < ApplicationController
+end

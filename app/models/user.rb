@@ -8,4 +8,10 @@ class User < ApplicationRecord
 
   validates :email, :first_name, :last_name, :nickname, presence: true
   validates :email, uniqueness: true
+
+  after_create :create_stack
+
+  def create_stack
+    Stack.create(user: self)
+  end
 end

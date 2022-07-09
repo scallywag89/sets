@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    discogs_call = DiscogsCall.new
+    discogs_call.callback
   end
 
   def about

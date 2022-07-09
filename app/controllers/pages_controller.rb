@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @user = User.where(id: params[:user_id])
   end
 
   def search

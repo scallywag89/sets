@@ -66,3 +66,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'discogs-wrapper'
+
+gem 'cloudinary', '~> 1.16.0'

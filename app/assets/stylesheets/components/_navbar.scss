@@ -1,6 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $sets-blue;
+  padding: 0.5rem 1rem;
+  color: $sets-white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +15,17 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $sets-white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    color: $sets-lt-blue;
+  }
 }

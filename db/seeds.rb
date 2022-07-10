@@ -15,7 +15,7 @@ if Rails.env.development?
 end
 
 puts "Generating  Albums (with tracks)..."
-6.times do
+10.times do
   album = Album.create(
     title: Faker::Music.album,
     artist: Faker::Music.band,
@@ -48,7 +48,7 @@ puts "-------------------------------------------------------"
 puts "Populating Stacks..."
 
 Stack.all.each do |stack|
-  5.times do
+  4.times do
     StackAlbum.create(
       stack_id: stack.id,
       album_id: Album.all.sample.id
@@ -66,7 +66,7 @@ User.all.each do |user|
       name: "#{Faker::Lorem.word} list",
       user_id: user.id
     )
-    3.times do
+    12.times do
       SetTrack.create(
         track_id: Track.all.sample.id,
         setlist_id: set.id

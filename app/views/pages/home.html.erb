@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="video-wrapper">
+  <%= video_tag "hero.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "hero-video" %>
+  <div class="container">
+    <h1>Sets</h1>
+    <h2>Your physical record collection</h2>
+    <h3>Organised, digitally.</h3>
+    <div class="container mt-4">
+      <%= link_to "Get started", new_user_registration_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>

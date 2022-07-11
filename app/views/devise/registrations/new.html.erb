@@ -1,12 +1,12 @@
   <div class="row">
     <div class="col-6 p-4 my-auto">
-      <div class="container">
+      <div class="container col-8">
         <h1>Nearly there...</h1>
         <h2>Create a free account!</h2>
       </div>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
-        <div class="form-inputs container">
+        <div class="form-inputs container col-8">
           <%= f.input :nickname, class: "form-control",
                       placeholder: "What should we call you?",
                       required: true,
@@ -21,11 +21,11 @@
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                       input_html: { autocomplete: "new-password" } %>
         </div>
-      <div class="form-actions container">
+      <div class="form-actions container col-8">
         <%= f.button :submit, "Sign up", class: "btn btn-success form-control" %>
       </div>
       <% end %>
-      <div class="container mt-3">
+      <div class="container mt-3 col-8">
         <%= render "devise/shared/links" %>
       </div>
     </div>

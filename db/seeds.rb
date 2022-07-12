@@ -80,7 +80,7 @@ User.create(
   password: "admin1",
   first_name: "admin",
   last_name: "jens",
-  nickname: "admin"
+  nickname: "admin",
   email: "admin@sets.com"
 )
 puts "Done!"

@@ -1,0 +1,23 @@
+<div style="height: 600px; background-color: white">
+  <div class="container">
+    <% if current_user.avatar.attached? %>
+      <%= cl_image_tag current_user.avatar.key %>
+    <% else %>
+      <%= image_tag "sets_logo.svg", class: "avatar-large" %>
+    <% end %>
+  </div>
+  <div class="container mx-auto my-auto">
+    <h2 class="text-center"><%= current_user.nickname %></h2>
+    <p class="text-center"><%= current_user.first_name %> <%= current_user.last_name %></p>
+    <p class="text-center">Followers</p>
+    <p class="text-center">Member since...</p>
+  </div>
+</div>
+<div class="container" style="height: 600px; background-color: $sets-red;">
+  <h1>Sets</h1>
+  <div class="container">
+  </div>
+  <h1>Stack</h1>
+  <div class="container">
+  </div>
+</div>

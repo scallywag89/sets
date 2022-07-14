@@ -1,1 +1,25 @@
 <%= render 'shared/searchbar' %>
+<% if @search %>
+  <% @search.results.each do |result| %>
+    <% if result.type == "master" || result.type == "release" %>
+      <% artist_title = result.title.split(" - ") %>
+      <p><%= artist_title[1] %></p>
+      <p><%= artist_title[0] %></p>
+      <p><%= result.type %></p>
+      <p><%= result.artist %></p>
+      <% raise %>
+      <p><%#= result.year %></p>
+      <p><%#= result.cover_image %></p>
+      <p>-------------------------------------</p>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%# album.new(
+  title: result.title,
+  artist:
+) %>
+<%# @search.results.each do |result| %>
+    <%# if result.type == "master" || result.type == "release" %>
+    <%#= album_card(Album.new(title: result.title, )) %>
+

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :discogs_call, only: [:search]
 
   def home
     discogs_service = DiscogsService.new
@@ -13,5 +14,15 @@ class PagesController < ApplicationController
   end
 
   def search
+    unless params["search"].nil?
+      @query = params["search"]["query"]
+      @search = @discogs.search(@query)
+    end
+  end
+
+  private
+
+  def discogs_call
+    @discogs = Discogs::Wrapper.new("Sets", user_token: ENV["DISCOGS_USER_TOKEN"])
   end
 end

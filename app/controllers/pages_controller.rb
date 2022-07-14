@@ -2,8 +2,8 @@ class PagesController < ApplicationController
   before_action :discogs_call, only: [:search]
 
   def home
-    discogs_call = DiscogsCall.new
-    discogs_call.callback
+    discogs_service = DiscogsService.new
+    discogs_service.callback
   end
 
   def about

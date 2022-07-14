@@ -14,7 +14,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -28,4 +28,15 @@
   &:hover {
     color: $sets-lt-blue;
   }
+}
+
+#bell {
+  margin-right: 25px;
+  align-items: center;
+}
+
+
+.navbar-nav {
+  align-items: center;
+  display: flex;
 }

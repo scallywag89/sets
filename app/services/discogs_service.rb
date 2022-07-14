@@ -1,7 +1,11 @@
 # require 'dotenv/load'
 
-class DiscogsCall
+class DiscogsService
   # Add an action to initiate the process.
+  def hello
+    puts "hello"
+  end
+
   def authenticate
     discogs     = Discogs::Wrapper.new("Sets")
     request_data = @discogs.get_request_token(ENV["DISCOGS_API_KEY"], ENV["DISCOGS_API_SECRET"], "http://127.0.0.1:3000/callback")

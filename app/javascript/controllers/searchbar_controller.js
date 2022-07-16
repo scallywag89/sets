@@ -9,9 +9,10 @@ export default class extends Controller {
 
   selectSearch() {
     console.log(this.inputTarget.checked);
-    this.element.addEventListener('change', (e) => {
-      console.log(e.target.checked)
-    }
+  }
+
+  updateParam() {
+      window.history.pushState(null, null, `?tracks=${this.inputTarget.checked}`);
   }
 
 }

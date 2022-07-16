@@ -14,10 +14,8 @@ class PagesController < ApplicationController
     @spotify.authenticate
     unless params["search"].nil?
       @query = params["search"]["query"]
-      @options = params["search"]["options"]
-      @search = RSpotify::Album.search(@query)
-
-      if @search
+      if params["search"]["track"] == "0"
+        @search = RSpotify::Album.search(@query)
         @albums = @search.map do |result|
           {
             artist: result.artists.first.name,
@@ -26,7 +24,17 @@ class PagesController < ApplicationController
             cover_image_url: result.images.first["url"]
           }
         end
+      else
+        @search = RSpotify::Track.search(@query)
+        @tracks = @search.map do |result|
+          {
+            title: result.name,
+            artist: result.artists.first.name,
+            cover_image_url: result.album.images.first["url"]
+          }
+        end
       end
     end
   end
+
 end

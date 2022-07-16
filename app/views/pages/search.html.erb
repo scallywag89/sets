@@ -2,11 +2,13 @@
 <% if @albums %>
   <% @albums.each do |album| %>
     <%= render 'shared/album_card', album: album %>
+    <%# raise %>
   <% end %>
 <% end %>
-
+<%# raise %>
 <% if @tracks %>
   <% @tracks.each do |track| %>
     <%= render 'shared/track_card', track: track %>
+    <%# raise %>
   <% end %>
 <% end %>

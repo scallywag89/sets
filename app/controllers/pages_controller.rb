@@ -17,6 +17,18 @@ class PagesController < ApplicationController
     unless params["search"].nil?
       @query = params["search"]["query"]
       @search = @discogs.search(@query)
+      if search
+        @albums = @search.results.map do |result|
+          if result.type == "master" || result.type == "release"
+            {
+              artist: result.title.split(" - ")[0],
+              title: result.title.split(" - ")[1],
+              year: result.year,
+              cover_image_url: result.cover_image
+            }
+          end
+        end.compact!
+      end
     end
   end
 

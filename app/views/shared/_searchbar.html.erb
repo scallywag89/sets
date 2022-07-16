@@ -1,11 +1,14 @@
-<%= simple_form_for :search, url: search_path, method: :get do |f| %>
+<%= simple_form_for :search, url: search_path(@pizza), method: :get do |f| %>
   <div class="search-form-control form-group">
     <%= f.input :query, class: 'form-control', input_html: {value: ""}, :label => false %>
     <%= f.submit "Submit", class: 'btn btn-secondary'%>
   </div>
 <% end %>
     <%#= f.collection_radio_buttons :options, [[true, 'Albums'], [false, 'Tracks']], :first, :last %>
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+<div class="form-check form-switch"
+     data-controller="searchbar">
+  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+         data-action="click->searchbar#selectSearch"
+         data-searchbar-target="input">
   <label class="form-check-label" for="flexSwitchCheckDefault">Tracks Only</label>
 </div>

@@ -12,9 +12,12 @@ class PagesController < ApplicationController
   def search
     @spotify = SpotifyService.new
     @spotify.authenticate
+
     unless params["search"].nil?
       @query = params["search"]["query"]
+      @options = params["search"]["options"]
       @search = RSpotify::Album.search(@query)
+
       if @search
         @albums = @search.map do |result|
           {

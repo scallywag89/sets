@@ -12,6 +12,16 @@
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "nickname" }%>
+          <%= f.input :first_name, class: "form-control",
+                      placeholder: "First name",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "first_name" }%>
+          <%= f.input :last_name, class: "form-control",
+                      placeholder: "Last name",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "last_name" }%>
           <%= f.input :email,
                       required: true,
                       autofocus: true,

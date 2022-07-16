@@ -1,7 +1,5 @@
 <div class="card" id="album">
-	<div class="card-img" id="album-img" style="background-image:url(<%= album[:cover_image] %>);">
- <! This above one seems to work, overides the below >
-<!	<div class="card-img" id="album-img" style="background-image:url(<%= album[:cover_image_url] %>);"> >
+  <div class="card-img" id="album-img" style="background-image:url(<%= album[:cover_image_url] %>);">
 		<div class="overlay">
 			<div class="overlay-content">
 				<a class="hover" href="#!">View Album</a>
@@ -13,8 +11,7 @@
 		<a href="#!">
 			<h2> <%= album[:title] %> </h2>
       <small class="text-muted"> <%= album[:artist] %> </small>
-			<p> <%= album[:year] %> , Vinyl</p>
+			<p> <%= album[:year] %> </p>
 		</a>
 	</div>
 </div>
-

@@ -1,0 +1,23 @@
+.dash-top {
+  height: 480px;
+  background-color: #AFBE9B;
+}
+.underline {
+  background-color: $sets-red;
+  height: 4px;
+  width: 280px;
+}
+.dash-mid {
+  justify-content: space;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #FDF5E6;
+}
+
+.dash-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}

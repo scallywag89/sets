@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
-  has_one :stack
+  has_one :stack, dependent: :destroy
   has_many :setlists
 
   validates :email, :first_name, :last_name, :nickname, presence: true

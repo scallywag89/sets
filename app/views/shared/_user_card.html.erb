@@ -1,0 +1,16 @@
+<div class="card m-3" id="user_card" style="width: 18rem;">
+  <div class="mx-auto pt-3">
+    <% if user.avatar.attached? %>
+      <%= image_tag user.avatar, class: "avatar-mega" %>
+    <% else %>
+      <%= image_tag "sets_logo.svg", class: "avatar-mega" %>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title text-center"><%= user.nickname %></h5>
+    <p class="card-text text-center"><%= user.first_name %> <%= user.last_name %></p>
+    <div class="container">
+    <p>followers</p>
+    </div>
+  </div>
+</div>

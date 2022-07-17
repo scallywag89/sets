@@ -1,14 +1,24 @@
-<%= render 'shared/searchbar' %>
-<% if @albums %>
-  <% @albums.each do |album| %>
-    <%= render 'shared/album_card', album: album %>
-    <%# raise %>
-  <% end %>
-<% end %>
-<%# raise %>
-<% if @tracks %>
-  <% @tracks.each do |track| %>
-    <%= render 'shared/track_card', track: track %>
-    <%# raise %>
-  <% end %>
-<% end %>
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <%= render 'shared/searchbar' %>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+      <% if @albums %>
+        <% @albums.each do |album| %>
+          <%= render 'shared/album_card', album: album %>
+          <%# raise %>
+        <% end %>
+      <% end %>
+      <%# raise %>
+      <% if @tracks %>
+        <div class="col-6">
+          <% @tracks.each do |track| %>
+            <%= render 'shared/track_card', track: track %>
+            <%# raise %>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
+</div>

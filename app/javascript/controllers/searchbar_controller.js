@@ -1,18 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["input"]
+  static targets = [ "album", "track" ]
 
   connect() {
-    console.log("Hello from our first Stimulus controller")
+    console.log("Hello from SearchBar controller")
   }
 
   selectSearch() {
-    console.log(this.inputTarget.checked);
+    this.albumTarget.classList.toggle("btn-default");
+    this.albumTarget.classList.toggle("btn-primary");
+    this.trackTarget.classList.toggle("btn-default");
+    this.trackTarget.classList.toggle("btn-primary");
   }
-
-  updateParam() {
-      window.history.pushState(null, null, `?tracks=${this.inputTarget.checked}`);
-  }
-
 }

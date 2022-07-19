@@ -14,6 +14,6 @@ class StacksController < ApplicationController
   private
 
   def find_stack
-    @stack = Stack.where(user_id: params[:user_id])
+    @stack = Stack.find(params[:id])
   end
 end

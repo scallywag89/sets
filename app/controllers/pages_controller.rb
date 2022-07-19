@@ -31,27 +31,31 @@ class PagesController < ApplicationController
     end
 
     def search_albums
-      @search = RSpotify::Album.search(@query)
-      @albums = @search.map do |result|
-        {
-          id: result.id,
-          artist: result.artists.first.name,
-          title: result.name,
-          year: result.release_date,
-          cover_image_url: result.images.first["url"],
-          tracks: result.tracks
-        }
+      unless @search.nil?
+        @search = RSpotify::Album.search(@query)
+        @albums = @search.map do |result|
+          {
+            id: result.id,
+            artist: result.artists.first.name,
+            title: result.name,
+            year: result.release_date,
+            cover_image_url: result.images.first["url"],
+            tracks: result.tracks
+          }
+        end
       end
     end
 
     def search_tracks
-      @search = RSpotify::Track.search(@query)
-      @tracks = @search.map do |result|
-        {
-          title: result.name,
-          artist: result.artists.first.name,
-          cover_image_url: result.album.images.first["url"]
-        }
+      unless @search.nil?
+        @search = RSpotify::Track.search(@query)
+        @tracks = @search.map do |result|
+          {
+            title: result.name,
+            artist: result.artists.first.name,
+            cover_image_url: result.album.images.first["url"]
+          }
+        end
       end
     end
 end

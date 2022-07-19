@@ -32,10 +32,12 @@ class PagesController < ApplicationController
       @search = RSpotify::Album.search(@query)
       @albums = @search.map do |result|
         {
+          id: result.id,
           artist: result.artists.first.name,
           title: result.name,
           year: result.release_date,
-          cover_image_url: result.images.first["url"]
+          cover_image_url: result.images.first["url"],
+          tracks: result.tracks
         }
       end
     end

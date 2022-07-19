@@ -8,7 +8,7 @@
       <% if @albums %>
         <% @albums.each do |album| %>
           <%= render 'shared/album_card', album: album %>
-          <%= render 'modal', album: album %>
+          <%#= render 'modal', album: album %>
           <%# raise %>
         <% end %>
       <% end %>

@@ -4,7 +4,7 @@
 		<div class="overlay">
 			<div class="overlay-content">
 				<%# <a class="hover" href="#!">View Album</a> %>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<%= album.title.gsub(/\s+/, '') %>">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<%= album[:id] %>">
         View Album
         </button>
 			</div>

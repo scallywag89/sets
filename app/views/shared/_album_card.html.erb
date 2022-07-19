@@ -2,18 +2,18 @@
   <div class="card-img" id="album-img" style="background-image:url(<%= album[:cover_image_url] %>);">
 		<div class="overlay">
 			<div class="overlay-content">
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<%= album[:title].gsub(/\s+/, '')%>">
-        View Album
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%= album[:title].gsub(/[!@%&0-9,\(\)\s+]/, "") %>">
+          View Album
         </button>
 			</div>
 		</div>
 	</div>
 
 	<div class="card-content" id="album-content">
-		<a href="#!">
 			<h2> <%= album[:title] %> </h2>
       <small class="text-muted"> <%= album[:artist] %> </small>
 			<p> <%= album[:year] %> </p>
-		</a>
 	</div>
 </div>
+
+<%= render "shared/modal", album: album %>

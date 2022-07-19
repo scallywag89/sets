@@ -2,7 +2,9 @@
   <div class="card-img" id="album-img" style="background-image:url(<%= album[:cover_image_url] %>);">
 		<div class="overlay">
 			<div class="overlay-content">
-				<a class="hover" href="#!">View Album</a>
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<%= album[:title].gsub(/\s+/, '')%>">
+        View Album
+        </button>
 			</div>
 		</div>
 	</div>

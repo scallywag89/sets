@@ -4,3 +4,15 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
+.sub-header {
+  font-family: $body-font;
+}
+
+.main-header {
+  font-family: $headers-font;
+  font-size: 100px!important;
+  letter-spacing: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}

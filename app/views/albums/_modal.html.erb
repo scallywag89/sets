@@ -1,0 +1,19 @@
+<div class="modal fade" id="modal<%= album.title.gsub(/\s+/, '') %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel"><%= album.title %>, <%= album.year %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3>By <%= album.artist %></h2>
+        <h5><% album.tracks.each do |track| %></h5>
+        <h5><%= track.name %></h5>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <%= link_to "Add Album to Stack", stack_stack_albums_path(stack_id: current_user.id, album_id: album.id), method: :create, data: { confirm: "Are you sure you want to add this album?" }  %>
+      </div>
+    </div>
+  </div>
+</div>

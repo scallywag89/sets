@@ -19,7 +19,8 @@ puts "Generating  Albums (with tracks)..."
   album = Album.create(
     title: Faker::Music.album,
     artist: Faker::Music.band,
-    year: (1970..2012).to_a.sample
+    year: (1970..2012).to_a.sample,
+    cover_image_url: Faker::LoremFlickr.image
   )
   8.times do
     Track.create(

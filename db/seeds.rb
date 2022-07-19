@@ -25,7 +25,7 @@ puts "Generating  Albums (with tracks)..."
     Track.create(
     name: Faker::Music::RockBand.song,
     album_id: album.id
-    )
+  )
   end
   puts "Added album ##{album.id}: #{album.title}"
 end

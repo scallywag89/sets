@@ -2,9 +2,10 @@ class StackAlbumsController < ApplicationController
   before_action :find_stack_album, only: [:destroy]
   before_action :find_album, :find_stack, only: [:create]
 
-  def create
-    @stack_album = StackAlbum.new(stack: @stack, album: @album)
+  def create()
+    @stack_album = StackAlbum.new(stack_id: @stack.id, album_id: @album.id)
     @stack_album.save
+    redirect_to albums_path
   end
 
   def destroy
@@ -14,11 +15,11 @@ class StackAlbumsController < ApplicationController
   private
 
   def find_stack
-    @stack = Stack.where(id: params[:stack_id])
+    @stack = Stack.find(params[:stack_id])
   end
 
   def find_album
-    @album = Album.where(id: params[:album_id])
+    @album = Album.find(params[:album_id])
   end
 
   def find_stack_album

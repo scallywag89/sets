@@ -1,0 +1,16 @@
+
+<div id="user-card">
+  <div class="avatar-div">
+    <% if user.avatar.attached? %>
+      <%= image_tag user.avatar, class: "avatar-large" %>
+    <% else %>
+      <%= image_tag "sets_logo.svg", class: "avatar-large" %>
+    <% end %>
+  </div>
+  <div class="user-info pl-3">
+    <h2><a href="#"><%= user.nickname %></a></h2>
+  </div>
+  <div class="user-button">
+    <a href="#" class="btn"><i class="fa fa-heart"></i></a>
+  </div>
+</div>

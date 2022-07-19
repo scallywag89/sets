@@ -1,0 +1,36 @@
+#user-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem;
+  border-bottom: 1px solid $sets-gray;
+
+  a {
+    color: $sets-gray;
+    text-decoration: none;
+
+    &:hover {
+      color: $sets-red;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: $sets-blue;
+  }
+}
+
+.avatar-div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-right: 1rem;
+}
+
+
+
+
+
+// add a glass effect to the user card

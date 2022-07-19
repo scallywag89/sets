@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 m-3">
+      <% @users.shuffle.each do |user| %>
+        <%= render 'shared/user_card', user: user %>
+      <% end %>
+    </div>
+  </div>
+</div>

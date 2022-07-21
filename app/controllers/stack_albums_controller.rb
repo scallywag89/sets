@@ -15,7 +15,7 @@ class StackAlbumsController < ApplicationController
   private
 
   def find_stack
-    @stack = Stack.find(params[:stack_id])
+    @stack = Stack.find_by_user_id(current_user.id)
   end
 
   def find_album

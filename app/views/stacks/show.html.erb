@@ -4,8 +4,8 @@
     <% if @stack.albums.empty? %>
       <p>Nothing in your Stack yet...</p>
     <% else %>
-      <% @stack.stack_albums.each do |stack_album| %>
-        <%= render 'shared/stack_album_card', album: stack_album.album %>
+      <% @stack.albums.each do |album| %>
+        <%= render 'shared/stack_album_card', album: album %>
       <% end %>
     <% end %>
   </div>

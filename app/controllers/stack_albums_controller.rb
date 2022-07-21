@@ -5,7 +5,6 @@ class StackAlbumsController < ApplicationController
   def create()
     @stack_album = StackAlbum.new(stack_id: @stack.id, album_id: @album.id)
     @stack_album.save
-    redirect_to albums_path
   end
 
   def destroy

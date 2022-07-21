@@ -29,6 +29,7 @@
     <div class="dash-cards">
       <% if @stack.albums.empty? %>
         <p>Nothing in your Stack yet...</p>
+        <%= link_to 'Add to Stack', search_path, class: "btn btn-primary" %>
       <% else %>
         <% @stack.albums.each do |album| %>
           <%= render 'shared/album_card', album: album %>

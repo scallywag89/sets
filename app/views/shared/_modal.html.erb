@@ -13,13 +13,13 @@
               <%= image_tag album[:cover_image_url], class: "album-img" %>
               <div class="pt-3">
                 <h2><%= album[:title] %></h2>
-                <h3><%= album[:year].slice(0..3) %></h3>
+                <h3><%= album[:year] %></h3>
               </div>
             </div>
             <div class="col-md-6 tracklist">
               <h2 class="sub-header">Tracklist:</h2>
-              <% album[:tracks].each do |track| %>
-                <p><%= track.track_number %>. <%= track.name %></p>
+              <% (album[:tracks].nil? ? album.tracks : album[:tracks]).each do |track| %>
+                <p><%= track.name %></p>
                 <%#= raise %>
               <% end %>
             </div>

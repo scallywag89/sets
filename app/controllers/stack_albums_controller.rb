@@ -5,7 +5,6 @@ class StackAlbumsController < ApplicationController
   def create()
     @stack_album = StackAlbum.new(stack_id: @stack.id, album_id: @album.id)
     @stack_album.save
-    redirect_to albums_path
   end
 
   def destroy
@@ -19,7 +18,18 @@ class StackAlbumsController < ApplicationController
   end
 
   def find_album
-    @album = Album.find(params[:album_id])
+    if Album.find_by_id(params[:album_id])
+      @album = Album.find(params[:album_id])
+    else
+      album = RSpotify::Album.find(params[:album_id])
+      @album = Album.create(
+        id: album.id,
+        artist: album.artists.first.name,
+        title: album.name,
+        year: album.release_date.slice(0..3),
+        cover_image_url: album.images.first["url"]
+      )
+    end
   end
 
   def find_stack_album

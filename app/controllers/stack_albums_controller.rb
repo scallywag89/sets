@@ -9,6 +9,7 @@ class StackAlbumsController < ApplicationController
 
   def destroy
     @stack_album.destroy
+    redirect_to stack_path
   end
 
   private

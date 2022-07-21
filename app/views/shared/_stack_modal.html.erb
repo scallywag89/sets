@@ -39,6 +39,7 @@
         </div>
       </div>
       <div class="modal-footer mx-auto">
+        <%= link_to "Delete", stack_album_path(album), method: :delete, data: { confirm: "Are you sure?" } %>
         <a href="" data-bs-dismiss="modal" style="color: red;">back</a>
       </div>
     </div>

@@ -8,6 +8,6 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:name, :album_id)
+    params.require(:track).permit(:name, :album_id, :spotify_id)
   end
 end

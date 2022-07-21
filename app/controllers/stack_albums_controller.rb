@@ -1,6 +1,6 @@
 class StackAlbumsController < ApplicationController
   before_action :find_stack_album, only: [:destroy]
-  before_action :find_album, :find_stack, only: [:create]
+  before_action :spotify_start, :find_album, :find_stack, only: [:create]
 
   def create()
     @stack_album = StackAlbum.new(stack_id: @stack.id, album_id: @album.id)
@@ -23,7 +23,7 @@ class StackAlbumsController < ApplicationController
     else
       album = RSpotify::Album.find(params[:album_id])
       @album = Album.create(
-        id: album.id,
+        spotify_id: params[:album_id],
         artist: album.artists.first.name,
         title: album.name,
         year: album.release_date.slice(0..3),
@@ -34,5 +34,10 @@ class StackAlbumsController < ApplicationController
 
   def find_stack_album
     @stack_album = StackAlbum.find(params[:id])
+  end
+
+  def spotify_start
+    @spotify = SpotifyService.new
+    @spotify.authenticate
   end
 end

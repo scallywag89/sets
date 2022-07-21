@@ -10,12 +10,14 @@ class Album < ApplicationRecord
   private
 
   def add_tracks
-    if RSpotify::Album.find(self)
-      album = RSpotify::Album.find(self)
+    self.save
+    if RSpotify::Album.find(spotify_id)
+      album = RSpotify::Album.find(spotify_id)
       album.tracks.each do |track|
         Track.create(
+          spotify_id: track.id,
           name: track.name,
-          album_id: self
+          album_id: self.id
         )
       end
     end

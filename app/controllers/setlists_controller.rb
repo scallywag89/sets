@@ -2,7 +2,7 @@ class SetlistsController < ApplicationController
   before_action :find_setlist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @setlists = Setlist.all
+    @setlists = Setlist.where(user_id: current_user.id)
   end
 
   def show

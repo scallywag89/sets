@@ -5,7 +5,11 @@
     <h2 class="sub-header">Your physical record collection</h2>
     <h3 class="sub-header">Organised, digitally.</h3>
     <div class="container mt-4">
-      <%= link_to "Get started", new_user_registration_path, class: "btn-start" %>
+      <% if current_user.nil? %>
+        <%= link_to "Get started", new_user_registration_path, class: "btn btn-secondary" %>
+      <% else %>
+        <%= link_to "Get started", search_path, class: "btn btn-secondary" %>
+      <% end %>
     </div>
   </div>
 </div>

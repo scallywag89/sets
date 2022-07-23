@@ -1,7 +1,6 @@
 require 'faker'
 
 
-if Rails.env.development?
   puts "Clearing development database..."
   Track.destroy_all
   Album.destroy_all
@@ -12,7 +11,6 @@ if Rails.env.development?
   SetTrack.destroy_all
   puts "-------------------------------------------------------"
   puts "No more Database!"
-end
 
 puts "Generating  Albums (with tracks)..."
 10.times do

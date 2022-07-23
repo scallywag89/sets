@@ -42,7 +42,7 @@
       </div>
       <div class="modal-footer mx-auto">
       <%= link_to "Add to Stack",
-            stack_stack_albums_path(stack_id: current_user.id, album_id: album[:id]),
+            stack_stack_albums_path(stack: Stack.where(user: current_user), album_id: album[:id]),
             method: :create,
             class: "btn btn-outline-secondary",
             "data-bs-dismiss": "modal"%>

@@ -27,12 +27,12 @@
   <div class="container p-3">
     <h1>Stack</h1>
     <div class="dash-cards">
-      <% if @stack.albums.empty? %>
+      <% if @stack.stack_albums.empty? %>
         <p>Nothing in your Stack yet...</p>
         <%= link_to 'Add to Stack', search_path, class: "btn btn-primary" %>
       <% else %>
-        <% @stack.albums.each do |album| %>
-          <%= render 'shared/album_card', album: album %>
+        <% @stack.stack_albums.each do |stack_album| %>
+          <%= render 'shared/stack_album_card', stack_album: stack_album %>
         <% end %>
       <% end %>
     </div>

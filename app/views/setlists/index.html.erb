@@ -1,0 +1,13 @@
+<h1>Sets</h1>
+<div class="dash-cards">
+  <% if @setlists.empty? %>
+    <div class="container text-center">
+      <p>No sets created yet...</p>
+      <%= link_to 'Create new Setlist', new_setlist_path, class: "btn btn-primary" %>
+    </div>
+  <% else %>
+    <% @setlists.each do |setlist| %>
+      <%#= render 'shared/setlist_modal', setlist: setlist  %>
+    <% end %>
+  <% end %>
+</div>

@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   def dashboard
     @user = User.find(current_user.id)
     @stack = @user.stack
-    @sets = @user.setlists
+    @setlists = @user.setlists
   end
 
   def search

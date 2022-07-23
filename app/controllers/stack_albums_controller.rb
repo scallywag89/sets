@@ -27,13 +27,14 @@ class StackAlbumsController < ApplicationController
         spotify_id: params[:album_id],
         artist: album.artists.first.name,
         title: album.name,
-        year: album.release_date.slice(0..3),
+        year: album.release_date,
         cover_image_url: album.images.first["url"]
       )
     end
   end
 
   def find_stack_album
+    @stack = Stack.where(user: current_user)
     @stack_album = StackAlbum.find(params[:id])
   end
 

@@ -5,11 +5,12 @@ class StackAlbumsController < ApplicationController
   def create()
     @stack_album = StackAlbum.new(stack_id: @stack.id, album_id: @album.id)
     @stack_album.save
+    redirect_to search_path, notice: "Album added to stack!"
   end
 
   def destroy
     @stack_album.destroy
-    redirect_to stack_path
+    redirect_to stack_path, notice: "Album deleted from stack!"
   end
 
   private

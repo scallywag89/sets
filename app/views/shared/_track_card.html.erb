@@ -3,5 +3,9 @@
   <div class="card-product-infos">
     <h2><%= track[:title] %></h2>
     <p><%= track[:artist] %></p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%= track[:title].gsub(/[!@%&0-9,\(\)\s+]/, "") %>">
+          Add Track
+    </button>
   </div>
 </div>
+  <%= render 'shared/track_modal', track: track %>

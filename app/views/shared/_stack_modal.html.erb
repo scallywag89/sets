@@ -1,22 +1,22 @@
-<div class="modal fade" id="<%= album[:title].gsub(/[!@%&0-9\'\,\(\)\s+]/, "") %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<%= stack_album.album[:title].gsub(/[!@%&0-9\'\,\(\)\s+]/, "") %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLabel"><%= album[:artist] %></h1>
+        <h1 class="modal-title" id="exampleModalLabel"><%= stack_album.album[:artist] %></h1>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-6">
-              <%= image_tag album[:cover_image_url], class: "album-img" %>
+              <%= image_tag stack_album.album[:cover_image_url], class: "album-img" %>
               <div class="pt-3">
-                <h2><%= album[:title] %></h2>
-                <h3><%= album[:year] %></h3>
+                <h2><%= stack_album.album[:title] %></h2>
+                <h3><%= stack_album.album[:year] %></h3>
               </div>
             </div>
             <div class="col-md-6 tracklist">
               <h2 class="sub-header">Tracklist:</h2>
-              <% (album[:tracks].nil? ? album.tracks : album[:tracks]).each do |track| %>
+              <% (stack_album.album[:tracks].nil? ? stack_album.album.tracks : stack_album.album[:tracks]).each do |track| %>
                 <p><%= track.name %></p>
                 <%#= raise %>
               <% end %>
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="modal-footer mx-auto">
-        <%= link_to "Delete", stack_album_path(album), method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Delete", stack_album_path(stack_album), method: :delete, data: { confirm: "Are you sure?" } %>
         <a href="" data-bs-dismiss="modal" style="color: red;">back</a>
       </div>
     </div>

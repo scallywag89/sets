@@ -2,6 +2,8 @@ class StacksController < ApplicationController
   before_action :find_stack
 
   def show
+    @albums = @stack.albums
+    @stack_albums = @stack.stack_albums
   end
 
   def edit

@@ -15,7 +15,7 @@ class SetlistsController < ApplicationController
   def create
     @setlist = Setlist.new(setlist_params)
     @setlist.user = current_user
-    if setlist.save
+    if @setlist.save
       redirect_to setlist_path(@setlist)
     else
       render :new
@@ -43,4 +43,5 @@ class SetlistsController < ApplicationController
   def find_setlist
     @setlist = Setlist.find(params[:id])
   end
+
 end

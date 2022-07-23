@@ -48,6 +48,7 @@ class PagesController < ApplicationController
       @search = RSpotify::Track.search(@query)
       @tracks = @search.map do |result|
         {
+          spotify_id: result.id,
           title: result.name,
           artist: result.artists.first.name,
           cover_image_url: result.album.images.first["url"]

@@ -1,6 +1,18 @@
 .dash-top {
   height: 480px;
-  background-color: #AFBE9B;
+
+  p {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+  }
+  h2 {
+    color: #fff;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+  }
 }
 .underline {
   background-color: $sets-red;

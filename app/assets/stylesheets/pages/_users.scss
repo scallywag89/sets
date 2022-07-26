@@ -73,15 +73,14 @@ input[type="radio"]:checked + .page{
 
 .page-contents{
   max-width: 100%;
-  width: 500px;
+  width: 1440px;
   margin: 0 auto;
 }
 
 .user-cards {
   display: flex;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: center;
+  align-items: center;
   grid-gap: 20px;
-  margin: 0 auto;
-  max-width: 100%;
-  width: 100%;
+  max-width: 500px;
 }

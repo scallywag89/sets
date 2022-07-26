@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index] do
     member do
-      post 'toggle favorite', to: 'users#toggle_favorite'
+      post 'toggle_favorite', to: 'users#toggle_favorite'
     end
   end
 end

@@ -14,7 +14,12 @@
 		</a>
 	</div>
   <div class="p-3">
-    <p>followers</p>
+    <p><%= user.favoritors.count %> followers</p>
+      <%= link_to toggle_favorite_user_path(user), remote: true, method: :post do %>
+        <%= render 'users/like_button', user: user %>
+      <% end %>
+  </div>
+  <div>
     <p><% if user.setlists.exists? %>
           <% if user.setlists.count == 1 %>
             <%= user.setlists.count %> set</p>

@@ -6,7 +6,9 @@
       <div class="container">
         <div class="user-cards">
           <% @users.shuffle.each do |user| %>
-            <%= render 'shared/user_card', user: user %>
+            <% unless user.id == current_user.id %>
+              <%= render 'shared/user_card', user: user %>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -22,7 +24,14 @@
   <div class="page about-page">
     <div class="page-contents">
       <h1>Following</h1>
-      <p>This is where your followed DJs show up</p>
+      <div class="user-cards">
+        <% @favorite_users.shuffle.each do |user| %>
+          <% unless user.id == current_user.id %>
+            <%= render 'shared/user_card', user: user %>
+          <% end %>
+        <% end %>
+      </div>
+
     </div>
   </div>
   <label class="user-nav" for="about">

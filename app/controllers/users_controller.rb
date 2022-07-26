@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @favorite_users = current_user.favorited_by_type('User')
   end
 
   def toggle_favorite

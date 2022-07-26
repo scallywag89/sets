@@ -18,14 +18,14 @@ class SetTracksController < ApplicationController
   end
 
   def find_setlist
-    @setlist = Setlist.find(params[:setlist_id])
+    @setlist = Setlist.find(params[:set_track][:setlist_id])
   end
 
   def find_track
-    if Track.find_by_spotify_id(params[:track_id])
-      @track = Track.find_by_spotify_id(params[:track_id])
+    if Track.find_by_spotify_id(params[:set_track][:track_id])
+      @track = Track.find_by_spotify_id(params[:set_track][:track_id])
     else
-      track = RSpotify::Track.find(params[:track_id])
+      track = RSpotify::Track.find(params[:set_track][:track_id])
       album = RSpotify::Album.find(track.album.id)
       @album = Album.create(
         spotify_id: album.id,
@@ -34,7 +34,7 @@ class SetTracksController < ApplicationController
         year: album.release_date,
         cover_image_url: album.images.first["url"]
       )
-      @track = Track.find_by_spotify_id(params[:track_id])
+      @track = Track.find_by_spotify_id(params[:set_track][:track_id])
     end
   end
 

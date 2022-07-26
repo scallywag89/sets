@@ -14,6 +14,9 @@ class User < ApplicationRecord
   after_create :create_stack
   after_commit :add_default_avatar, on: [:create]
 
+  acts_as_favoritable
+  acts_as_favoritor
+
   private
 
   def create_stack

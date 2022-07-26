@@ -4,4 +4,6 @@ class Setlist < ApplicationRecord
   has_many :tracks, through: :set_tracks
 
   validates :name, presence: true
+
+  acts_as_favoritable
 end

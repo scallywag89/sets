@@ -1,16 +1,24 @@
-
-<div id="user-card">
-  <div class="avatar-div">
+<div class="user-card">
     <% if user.avatar.attached? %>
-      <%= image_tag user.avatar, class: "avatar-large" %>
+      <%= image_tag user.avatar, class: "avatar-mega" %>
     <% else %>
-      <%= image_tag "sets_logo.svg", class: "avatar-large" %>
+      <%= image_tag "sets_logo.svg", class: "avatar-mega" %>
     <% end %>
-  </div>
-  <div class="user-info pl-3">
-    <h2><a href="#"><%= user.nickname %></a></h2>
-  </div>
-  <div class="user-button">
-    <a href="#" class="btn"><i class="fa fa-heart"></i></a>
+	<h3><%= user.nickname %></h3>
+	<div class="btn-container">
+		<a class="btn btn-success">
+			Profile
+		</a>
+		<a class="btn btn-outline-info">
+      Follow
+		</a>
+	</div>
+  <div class="p-3">
+    <p>followers</p>
+    <p><% if user.setlists.exists? %>
+        <%= user.setlists %>sets</p>
+      <% else %>
+        No sets created yet...
+      <% end %>
   </div>
 </div>

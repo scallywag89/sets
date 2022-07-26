@@ -1,36 +1,27 @@
-#user-card {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  margin: 1rem;
-  border-bottom: 1px solid $sets-gray;
 
-  a {
-    color: $sets-gray;
-    text-decoration: none;
-
-    &:hover {
-      color: $sets-red;
-    }
-  }
-
-  p {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: $sets-blue;
-  }
+h3 {
+	margin: 10px 0;
 }
 
-.avatar-div {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin-bottom: 1rem;
-  padding-right: 1rem;
+h6 {
+	margin: 5px 0;
+	text-transform: uppercase;
 }
 
+p {
+	font-size: 14px;
+	line-height: 21px;
+}
 
-
-
-
-// add a glass effect to the user card
+.user-card {
+	background-color: $sets-blue;
+	border-radius: 4px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	color: $sets-white;
+	padding-top: 30px;
+  padding-bottom: 30px;
+	position: relative;
+	width: 300px;
+	max-width: 100%;
+	text-align: center;
+}

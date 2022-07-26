@@ -2,14 +2,12 @@
   <input name="user-nav" type="radio" class="nav home-radio" id="home" checked="checked" />
   <div class="page home-page">
     <div class="page-contents mt-3">
-      <h1>Trending DJ's</h1>
+      <h1 class="text-center">Trending DJ's</h1>
       <div class="container">
-        <div class="row justify-content-center m-3">
-          <div class="">
-            <% @users.shuffle.each do |user| %>
-              <%= render 'shared/user_card', user: user %>
-            <% end %>
-          </div>
+        <div class="user-cards">
+          <% @users.shuffle.each do |user| %>
+            <%= render 'shared/user_card', user: user %>
+          <% end %>
         </div>
       </div>
     </div>

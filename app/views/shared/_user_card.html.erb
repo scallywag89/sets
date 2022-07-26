@@ -16,7 +16,11 @@
   <div class="p-3">
     <p>followers</p>
     <p><% if user.setlists.exists? %>
-        <%= user.setlists %>sets</p>
+          <% if user.setlists.count == 1 %>
+            <%= user.setlists.count %> set</p>
+          <% else %>
+            <%= user.setlists.count %> sets</p>
+          <% end %>
       <% else %>
         No sets created yet...
       <% end %>

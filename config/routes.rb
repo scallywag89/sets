@@ -19,5 +19,9 @@ Rails.application.routes.draw do
   end
   resources :set_tracks, only: [:destroy]
 
-  resources :users, only: [:index]
+  resources :users, only: [:index] do
+    member do
+      post 'toggle favorite', to: 'users#toggle_favorite'
+    end
+  end
 end

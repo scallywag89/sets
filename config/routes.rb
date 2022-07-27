@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   end
   resources :set_tracks, only: [:destroy]
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
 end

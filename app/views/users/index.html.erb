@@ -3,7 +3,6 @@
   <div class="page home-page">
     <div class="page-contents mt-3">
       <h1 class="text-center p-3">Trending DJ's</h1>
-      <div class="container">
         <div class="user-cards">
           <% @users.shuffle.each do |user| %>
             <% unless user.id == current_user.id %>
@@ -11,7 +10,6 @@
             <% end %>
           <% end %>
         </div>
-      </div>
     </div>
   </div>
   <label class="user-nav" for="home">
@@ -22,7 +20,7 @@
 
   <input name="user-nav" type="radio" class="about-radio" id="about" />
   <div class="page about-page">
-    <div class="page-contents">
+    <div class="page-contents mt-3">
       <h1>Following</h1>
       <div class="user-cards">
         <% @favorite_users.shuffle.each do |user| %>

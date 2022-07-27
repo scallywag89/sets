@@ -79,8 +79,8 @@ input[type="radio"]:checked + .page{
 
 .user-cards {
   display: flex;
+  width: 100%;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  grid-gap: 20px;
-  max-width: 500px;
+  margin-bottom: 1rem;
 }

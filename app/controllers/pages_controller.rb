@@ -30,7 +30,9 @@ class PagesController < ApplicationController
   private
 
     def set_setlists
-      @setlists = Setlist.where(user_id: current_user.id)
+      if current_user
+        @setlists = Setlist.where(user_id: current_user.id)
+      end
     end
 
     def spotify_start

@@ -1,9 +1,9 @@
 <div class="card-product m-3">
   <img src="<%= track[:cover_image_url] %>" />
   <div class="card-product-infos">
-    <h2><%= track[:title] %></h2>
+    <h2><%= track[:name] %></h2>
     <p><%= track[:artist] %></p>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%= track[:title].gsub(/[!@%&0-9,\(\)\s+]/, "") %>">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%= track[:name].gsub(/[!@%&0-9,\(\)\s+]/, "") %>">
           Add Track
     </button>
   </div>

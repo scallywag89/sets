@@ -38,22 +38,22 @@
   z-index:-1;
 }
 #setcard:hover:before{
-transform: rotate(20deg);
-box-shadow: 0 2px 20px rgba(0,0,0,.2);
+  transform: rotate(20deg);
+  box-shadow: 0 2px 20px rgba(0,0,0,.2);
 }
 #setcard:hover:after{
-transform: rotate(10deg);
-box-shadow: 0 2px 20px rgba(0,0,0,.2);
+  transform: rotate(10deg);
+  box-shadow: 0 2px 20px rgba(0,0,0,.2);
 }
 #setcard .imgBx{
-position: absolute;
-top: 10px;
-left: 10px;
-bottom: 10px;
-right: 10px;
-background: #222;
-transition: 0.5s;
-z-index: 1;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  background: #222;
+  transition: 0.5s;
+  z-index: 1;
 }
 
 #setcard:hover .imgBx
@@ -62,36 +62,47 @@ z-index: 1;
 }
 
 #setcard .imgBx img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 #setcard .details{
-    position: absolute;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    height: 60px;
-    text-align: center;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 60px;
+  text-align: center;
 }
 
-#setcard .details h2{
+#setcard .details h5{
  margin: 0;
  padding: 0;
  font-weight: 600;
- font-size: 20px;
+ font-size: 16px;
  color: #777;
  text-transform: uppercase;
 }
 
-#setcard .details h2 span{
-font-weight: 500;
-font-size: 16px;
-color: #f38695;
-display: block;
-margin-top: 5px;
+#setcard .details h5 span{
+  font-weight: 500;
+  font-size: 12px;
+  color: #f38695;
+  display: block;
+  margin-top: 5px;
+ }
+
+ #setcard .details h2{
+  transition: 0.5s;
+  padding-top: 24px;
+ }
+
+ #setcard:hover h2{
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
  }

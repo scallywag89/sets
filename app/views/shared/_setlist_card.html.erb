@@ -5,13 +5,14 @@
         <% if setlist.setlist_image.attached? %>
           <%= cl_image_tag setlist.setlist_image.key %>
         <% else %>
-          <%= image_tag "sets_logo.svg" %>
+          <%= image_tag setlist.tracks.first.album.cover_image_url %>
         <% end %>
       </div>
       <div class="details">
         <h5><%= setlist.name %><br><span><%= setlist.set_tracks.count %> tracks</span>
         <%= link_to "Go to Set", setlist_path(setlist.id) %>
         </h5>
+        <h2><%= setlist.name %></h2>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@
         <% if setlist.setlist_image.attached? %>
           <%= cl_image_tag setlist.setlist_image.key %>
         <% else %>
-          <%= image_tag "sets_logo.svg" %>
+          <%= image_tag setlist.tracks.first.album.cover_image_url %>
         <% end %>
       </div>
       <div class="details">

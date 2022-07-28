@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   before_action :spotify_start, only: [:search]
+  before_action :set_setlists
+
   def home
   end
 
@@ -13,6 +15,8 @@ class PagesController < ApplicationController
   end
 
   def search
+    @setlist = Setlist.first
+    @set_track = SetTrack.new
     unless params["search"].nil?
       @query = params["search"]["query"]
       if params["search"]["track"] == "0"
@@ -24,6 +28,12 @@ class PagesController < ApplicationController
   end
 
   private
+
+    def set_setlists
+      if current_user
+        @setlists = Setlist.where(user_id: current_user.id)
+      end
+    end
 
     def spotify_start
       @spotify = SpotifyService.new
@@ -49,7 +59,7 @@ class PagesController < ApplicationController
       @tracks = @search.map do |result|
         {
           spotify_id: result.id,
-          title: result.name,
+          name: result.name,
           artist: result.artists.first.name,
           cover_image_url: result.album.images.first["url"]
         }

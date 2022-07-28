@@ -1,3 +1,13 @@
-<%# <%= @setlist.tracks.each do |track| %>
-<%# <%= track.name %>
-<%# <% end %>
+<div class="container" id="setlistcontainer">
+  <h2 class="setlistname"><%= @setlist.name %></h2>
+  <ol class="alltracks">
+  <% @setlist.tracks.each do |track| %>
+    <% stack_spot_ids = current_user.stack.tracks.pluck(:spotify_id) %>
+    <% if stack_spot_ids.include?(track.spotify_id) %>
+    <li id="trkyes"> <%= track.name %> - <%= track.album.artist %> </li>
+    <% else %>
+    <li id="trkno"> <%= track.name %> - <%= track.album.artist %> </li>
+    <% end %>
+  <% end %>
+  </ol>
+</div>

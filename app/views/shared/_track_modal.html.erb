@@ -1,4 +1,4 @@
-<div class="modal fade" id="<%= track[:name].gsub(/[!@%&0-9,\(\)\s+]/, "") %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="_<%= track[:spotify_id] %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -26,7 +26,19 @@
               class: "btn btn-outline-secondary",
               "data-bs-dismiss": "modal" %>
 
-        <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
+        <!--> THIS IF ELSE IS A TEMPORARY FIX <-->
+        <% if @setlists.nil? %>
+          <%= link_to "Create a new set", new_setlist_path %>
+          <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
+
+        <% else %>
+          <%= link_to "Add to Set",
+            setlist_set_tracks_path(setlist_id: Setlist.last.id, track_id: track[:spotify_id]),
+              method: :create,
+              class: "btn btn-outline-secondary",
+              "data-bs-dismiss": "modal"%>
+            <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
+        <% end %>
       </div>
     </div>
   </div>

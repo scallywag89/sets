@@ -2,7 +2,7 @@
   <div class="card-img" id="album-img" style="background-image:url(<%= stack_album.album[:cover_image_url] %>);">
 		<div class="overlay">
 			<div class="overlay-content">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%= stack_album.album[:title].gsub(/[!@%&0-9,\(\)\s+]/, "") %>">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#_<%= stack_album.album[:spotify_id] %>">
           View Album
         </button>
 			</div>

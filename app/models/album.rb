@@ -7,6 +7,8 @@ class Album < ApplicationRecord
 
   after_create :add_tracks
 
+  acts_as_favoritable
+
   private
 
   def add_tracks

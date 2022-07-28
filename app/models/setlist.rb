@@ -5,4 +5,6 @@ class Setlist < ApplicationRecord
   has_one_attached :setlist_image
 
   validates :name, presence: true
+
+  acts_as_favoritable
 end

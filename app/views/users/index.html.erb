@@ -1,9 +1,40 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6 m-3">
-      <% @users.shuffle.each do |user| %>
-        <%= render 'shared/user_card', user: user %>
-      <% end %>
+<div class="layout">
+  <input name="user-nav" type="radio" class="nav home-radio" id="home" checked="checked" />
+  <div class="page home-page">
+    <div class="page-contents mt-3">
+      <h1 class="text-center p-3">Trending DJ's</h1>
+        <div class="user-cards">
+          <% @users.shuffle.each do |user| %>
+            <% unless user.id == current_user.id %>
+              <%= render 'shared/user_card', user: user %>
+            <% end %>
+          <% end %>
+        </div>
     </div>
   </div>
+  <label class="user-nav" for="home">
+    <span>
+      Explore
+    </span>
+  </label>
+
+  <input name="user-nav" type="radio" class="about-radio" id="about" />
+  <div class="page about-page">
+    <div class="page-contents mt-3">
+      <h1 class="text-center">Following</h1>
+      <div class="user-cards">
+        <% @favorite_users.shuffle.each do |user| %>
+          <% unless user.id == current_user.id %>
+            <%= render 'shared/user_card', user: user %>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+  <label class="user-nav" for="about">
+    <span>
+      Following
+    </span>
+    </label>
 </div>

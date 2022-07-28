@@ -1,0 +1,12 @@
+.like-icon {
+  font-size: 2rem;
+  color: $sets-lt-blue;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: $sets-red;
+  }
+}
+
+.red {
+  color: $sets-red;
+}

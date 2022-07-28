@@ -68,3 +68,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rspotify'
 # Cloudinary Gem
 gem 'cloudinary', '~> 1.16.0'
+# Acts As Favoritor Gem
+gem 'acts_as_favoritor'

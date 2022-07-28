@@ -49,7 +49,7 @@
       </div>
     <% else %>
       <% @setlists.each do |setlist| %>
-        <%#= render 'shared/setlist_modal', setlist: setlist  %>
+        <%= render 'shared/setlist_card', setlist: setlist  %>
       <% end %>
     <% end %>
     </div>

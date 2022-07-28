@@ -6,9 +6,7 @@
     <% end %>
 	<h3><%= user.nickname %></h3>
 	<div class="btn-container">
-		<a class="btn btn-success">
-			Profile
-		</a>
+    <%= link_to "Profile", dashboard_path(user), class: "btn btn-secondary"%>
 	</div>
   <div class="p-3">
     <p><%= user.favoritors.count %> followers</p>

@@ -1,0 +1,53 @@
+<div class="dash-top"
+     style="background-image: url(<%= asset_path 'dash.jpg' %>); background-size: cover; background-position: center;">
+  <div class="container pt-5 pb-3">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <% if @user.avatar.attached? %>
+          <%= cl_image_tag @user.avatar.key, class: "avatar-mega" %>
+        <% else %>
+          <%= image_tag "sets_logo.svg", class: "avatar-mega" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center">
+    <h2><%= @user.nickname %></h2>
+    <div class="m-3 mx-auto underline"></div>
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
+    <p>Followers</p>
+    <p>Member since <%= @user.created_at.year %></p>
+  </div>
+</div>
+
+
+
+
+<div class="dash-mid">
+  <div class="container p-3">
+    <h1>Stack</h1>
+    <div class="dash-cards">
+      <% if @user.stack.stack_albums.empty? %>
+        <p>Nothing in their Stack yet...</p>
+      <% else %>
+        <% @user.stack.stack_albums.shuffle.each do |stack_album| %>
+          <%= render 'shared/stack_album_card', stack_album: stack_album %>
+        <% end %>
+      <% end %>
+    </div>
+
+
+    <h1>Sets</h1>
+    <div class="dash-cards">
+    <% if @user.setlists.empty? %>
+      <div class="container text-center">
+        <p>No sets created yet...</p>
+      </div>
+    <% else %>
+      <% @user.setlists.each do |setlist| %>
+        <%#= render 'shared/setlist_modal', setlist: setlist  %>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>

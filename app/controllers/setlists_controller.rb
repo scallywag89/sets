@@ -37,7 +37,7 @@ class SetlistsController < ApplicationController
   private
 
   def setlist_params
-    params.require(:setlist).permit(:name)
+    params.require(:setlist).permit(:name, :setlist_image)
   end
 
   def find_setlist

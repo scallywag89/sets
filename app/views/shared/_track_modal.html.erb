@@ -1,8 +1,8 @@
-<div class="modal fade" id="<%= track[:title].gsub(/[!@%&0-9,\(\)\s+]/, "") %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="_<%= track[:spotify_id] %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><%= track[:title] %></h5>
+        <h5 class="modal-title" id="exampleModalLabel"><%= track[:name] %></h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -12,15 +12,34 @@
       </div>
       <div class="modal-footer">
 
+        <%= simple_form_for [@setlist, @set_track] do |f| %>
+          <%= f.input :setlist_id, collection: @setlists %>
+          <%= f.hidden_field :track_id, value: track[:spotify_id] %>
+          <%= f.submit 'Add to Set', class: "btn btn-outline-secondary", "data-bs-dismiss": "modal"  %>
+        <% end %>
+        <%#= select_tag(:setlist_id, options_from_collection_for_select(@setlists, :id, :name)) %>
+        <%#= link_to "Add to Set",
+          setlist_set_tracks_path(
+            setlist_id: :setlist_id,
+            track_id: track[:spotify_id]),
+              method: :create,
+              class: "btn btn-outline-secondary",
+              "data-bs-dismiss": "modal" %>
 
+        <!--> THIS IF ELSE IS A TEMPORARY FIX <-->
+        <% if @setlists.nil? %>
+          <%= link_to "Create a new set", new_setlist_path %>
+          <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
 
-      <%= link_to "Add to Set",
-        setlist_set_tracks_path(setlist_id: Setlist.last.id, track_id: track[:spotify_id]),
-          method: :create,
-          class: "btn btn-outline-secondary",
-          "data-bs-dismiss": "modal"%>
-        <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
-        </div>
+        <% else %>
+          <%= link_to "Add to Set",
+            setlist_set_tracks_path(setlist_id: Setlist.last.id, track_id: track[:spotify_id]),
+              method: :create,
+              class: "btn btn-outline-secondary",
+              "data-bs-dismiss": "modal"%>
+            <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

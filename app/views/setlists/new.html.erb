@@ -4,4 +4,5 @@
   <%= f.file_field :setlist_image %>
   <%= f.button :submit, class: "btn-primary" %>
   <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+  <%= f.hidden_field :track, value: params[:spotify_id] %>
 <% end %>

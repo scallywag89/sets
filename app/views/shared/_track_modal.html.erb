@@ -11,33 +11,17 @@
         <%= track[:artist] %>
       </div>
       <div class="modal-footer">
-
-        <%= simple_form_for [@setlist, @set_track] do |f| %>
-          <%= f.input :setlist_id, collection: @setlists %>
-          <%= f.hidden_field :track_id, value: track[:spotify_id] %>
-          <%= f.submit 'Add to Set', class: "btn btn-outline-secondary", "data-bs-dismiss": "modal"  %>
-        <% end %>
-        <%#= select_tag(:setlist_id, options_from_collection_for_select(@setlists, :id, :name)) %>
-        <%#= link_to "Add to Set",
-          setlist_set_tracks_path(
-            setlist_id: :setlist_id,
-            track_id: track[:spotify_id]),
-              method: :create,
-              class: "btn btn-outline-secondary",
-              "data-bs-dismiss": "modal" %>
-
-        <!--> THIS IF ELSE IS A TEMPORARY FIX <-->
-        <% if @setlists.nil? %>
-          <%= link_to "Create a new set", new_setlist_path %>
+        <% if @setlists.empty? %>
+          <%= link_to "Create a new set", new_setlist_path(track) %>
           <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
 
         <% else %>
-          <%= link_to "Add to Set",
-            setlist_set_tracks_path(setlist_id: Setlist.last.id, track_id: track[:spotify_id]),
-              method: :create,
-              class: "btn btn-outline-secondary",
-              "data-bs-dismiss": "modal"%>
-            <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
+          <%= simple_form_for [@setlist, @set_track] do |f| %>
+            <%= f.input :setlist_id, collection: @setlists, selected: @setlists.first %>
+            <%= f.hidden_field :track_id, value: track[:spotify_id] %>
+            <%= f.submit 'Add to Set', class: "btn btn-outline-secondary", "data-bs-dismiss": "modal"  %>
+          <% end %>
+          <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
         <% end %>
       </div>
     </div>

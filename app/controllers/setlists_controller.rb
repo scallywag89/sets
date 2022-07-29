@@ -15,6 +15,7 @@ class SetlistsController < ApplicationController
   def create
     @setlist = Setlist.new(setlist_params)
     @setlist.user = current_user
+    SetTrack.new(setlist: @setlist) if params[:setlist][:track]
     if @setlist.save
       redirect_to setlist_path(@setlist)
     else

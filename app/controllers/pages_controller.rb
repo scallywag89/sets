@@ -17,7 +17,9 @@ class PagesController < ApplicationController
   def search
     @setlist = Setlist.first
     @set_track = SetTrack.new
-    unless params["search"].nil?
+    if params["search"].nil?
+      nil_search
+    else
       @query = params["search"]["query"]
       if params["search"]["track"] == "0"
         search_albums
@@ -43,6 +45,20 @@ class PagesController < ApplicationController
     def search_albums
       @search = RSpotify::Album.search(@query)
       @albums = @search.map do |result|
+        {
+          id: result.id,
+          artist: result.artists.first.name,
+          title: result.name,
+          year: result.release_date,
+          cover_image_url: result.images.first["url"],
+          tracks: result.tracks
+        }
+      end
+    end
+
+    def nil_search
+      @search = RSpotify::Album.new_releases(limit: 10, offset: 0, country: nil)
+      @albums = @search[0..2].map do |result|
         {
           id: result.id,
           artist: result.artists.first.name,

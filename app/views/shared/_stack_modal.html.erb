@@ -39,8 +39,12 @@
         </div>
       </div>
       <div class="modal-footer mx-auto">
+        <% if @stack.user_id == current_user.id %>
         <%= link_to "Delete", stack_album_path(stack_album), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
         <a href="" data-bs-dismiss="modal" class="btn btn-outline-secondary">Back</a>
+        <% else %>
+        <a href="" data-bs-dismiss="modal" class="btn btn-outline-secondary">Back</a>
+        <% end %>
       </div>
     </div>
   </div>

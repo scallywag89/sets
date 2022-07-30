@@ -21,11 +21,8 @@ class PagesController < ApplicationController
       nil_search
     else
       @query = params["search"]["query"]
-      if params["search"]["track"] == "0"
-        search_albums
-      else
-        search_tracks
-      end
+      search_albums
+      search_tracks
     end
   end
 
@@ -44,6 +41,7 @@ class PagesController < ApplicationController
 
     def search_albums
       @search = RSpotify::Album.search(@query)
+      # raise
       @albums = @search.map do |result|
         {
           id: result.id,
@@ -51,7 +49,8 @@ class PagesController < ApplicationController
           title: result.name,
           year: result.release_date,
           cover_image_url: result.images.first["url"],
-          tracks: result.tracks
+          tracks: result.tracks,
+          type: result.type
         }
       end
     end
@@ -65,7 +64,17 @@ class PagesController < ApplicationController
           title: result.name,
           year: result.release_date,
           cover_image_url: result.images.first["url"],
-          tracks: result.tracks
+          tracks: result.tracks,
+          type: result.type
+        }
+      end
+      @tracks = @search.shuffle.sample.tracks.map do |result|
+        {
+          spotify_id: result.id,
+          name: result.name,
+          artist: result.artists.first.name,
+          cover_image_url: result.album.images.first["url"],
+          type: result.type
         }
       end
     end
@@ -77,7 +86,8 @@ class PagesController < ApplicationController
           spotify_id: result.id,
           name: result.name,
           artist: result.artists.first.name,
-          cover_image_url: result.album.images.first["url"]
+          cover_image_url: result.album.images.first["url"],
+          type: result.type
         }
       end
     end

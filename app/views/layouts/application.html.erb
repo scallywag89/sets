@@ -2,8 +2,9 @@
 <html>
   <head>
     <title><%= meta_title %></title>
-    <meta name="description" content="<%= meta_description %>">
-    <%= favicon_link_tag %>
+    <meta name="viewport" content="<%= meta_description %>">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>" />
@@ -20,6 +21,11 @@
     <meta name="twitter:description" content="<%= meta_description %>">
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= favicon_link_tag asset_path('sets_logo.svg') %>
   </head>
 
   <body>

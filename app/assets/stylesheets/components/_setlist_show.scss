@@ -1,17 +1,46 @@
-#setlistcontainer {
-  margin-top: 100px;
-  background-color: lightgrey;
+.page {
+  position: relative;
 }
 
+#setlistcontainer {
+  margin-top: 100px;
+  background-color: $sets-white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 50%;
+  box-shadow: 3px 4px 3px rgb(161, 161, 158);
+  z-index: 1;
+  position: relative;
+  bottom: -70px;
+}
+
+.setlistcreator {
+  text-align: center;
+  opacity: 0.8;
+  border-bottom: 1px solid $sets-blue;
+  padding: 5px;
+  color: $sets-blue;
+}
+
+
 .setlistname {
-  border: 1px solid rgb(58, 54, 54);
   margin-top: 5px;
+  text-align: center;
+  color: $sets-blue;
 }
 
 #trkyes {
-  border: 1px solid rgb(58, 54, 54);
+  color: $sets-blue;
+  padding: 5px;
 }
 
 #trkno {
-  background-color: white;
+  color: $sets-lt-blue;
+  padding: 5px;
+}
+
+.bground {
+  background-color: $sets-white;
+  height: 100px;
+  position: relative;
 }

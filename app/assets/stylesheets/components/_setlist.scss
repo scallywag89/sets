@@ -91,18 +91,34 @@
 #setcard .details h5 span{
   font-weight: 500;
   font-size: 12px;
-  color: #f38695;
+  color: $sets-red;
   display: block;
   margin-top: 5px;
  }
 
- #setcard .details h2{
+ #setcard .details h4{
   transition: 0.5s;
   padding-top: 24px;
  }
 
- #setcard:hover h2{
+ #setcard:hover h4{
   transition: 0.5s;
   opacity: 0;
   visibility: hidden;
+ }
+
+ .newset {
+   background-color: $sets-lt-blue;
+   padding: 10px;
+   border-radius: 5px;
+   width: 200px;
+   text-decoration: none;
+ }
+
+ .newset a {
+   text-decoration: none;
+ }
+
+ .btncont {
+   margin-left: 50px;
  }

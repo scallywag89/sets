@@ -1,4 +1,3 @@
-<h1>Sets</h1>
 <div class="sets-cards">
   <% if @setlists.empty? %>
     <div class="container text-center">
@@ -10,4 +9,7 @@
       <%= render 'shared/setlist_card', setlist: setlist %>
     <% end %>
   <% end %>
+</div>
+<div class="btncont">
+<h5 class="newset"><%= link_to "Create a new Set...", new_setlist_path %></h5>
 </div>

@@ -4,25 +4,6 @@
       <%= f.input :query, class: 'form-control string-required', input_html: {value: ""}, :label => false %>
       <%= f.submit "Search", class: 'btn btn-secondary' %>
     </div>
-  <p>Search for:</p>
-    <div class="form-check form-switch d-flex px-0">
-      <div class="flex">
-        <p data-searchbar-target="album" class="btn btn-primary">Albums</p>
-      </div>
-      <%= f.input :track,
-      as: :boolean,
-      :label => false,
-      input_html: {
-        :checked => "unchecked",
-        class: "form-check-input mx-auto",
-        id: "flexSwitchCheckDefault",
-        "data-action": "click->searchbar#selectSearch"
-        } %>
-      <div class="px-3">
-        <p data-searchbar-target="track" class="btn btn-default">Tracks</p>
-      </div>
-    </div>
 
   <% end %>
-
 </div>

@@ -15,7 +15,11 @@ class SetlistsController < ApplicationController
   def create
     @setlist = Setlist.new(setlist_params)
     @setlist.user = current_user
-    SetTrack.new(setlist: @setlist) if params[:setlist][:track]
+    # raise
+    if params[:setlist][:track] != ""
+      find_track
+      SetTrack.create(setlist: @setlist, track: @track)
+    end
     if @setlist.save
       redirect_to setlist_path(@setlist)
     else
@@ -43,6 +47,23 @@ class SetlistsController < ApplicationController
 
   def find_setlist
     @setlist = Setlist.find(params[:id])
+  end
+
+  def find_track
+    if Track.find_by_spotify_id(params[:setlist][:track])
+      @track = Track.find_by_spotify_id(params[:setlist][:track])
+    else
+      track = RSpotify::Track.find(params[:setlist][:track])
+      album = RSpotify::Album.find(track.album.id)
+      @album = Album.create(
+        spotify_id: album.id,
+        artist: album.artists.first.name,
+        title: album.name,
+        year: album.release_date,
+        cover_image_url: album.images.first["url"]
+      )
+      @track = Track.find_by_spotify_id(params[:setlist][:track])
+    end
   end
 
 end

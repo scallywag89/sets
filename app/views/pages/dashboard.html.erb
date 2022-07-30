@@ -15,43 +15,76 @@
     <h2><%= @user.nickname %></h2>
     <div class="m-3 mx-auto underline"></div>
     <p><%= @user.first_name %> <%= @user.last_name %></p>
-    <p>Followers</p>
+    <p><%= @user.favoritors.count %> followers</p>
     <p>Member since... <%= @user.created_at.year %></p>
   </div>
 </div>
 
 
+<div>
+  <% if @user.id == current_user.id %>
+    <div class="dash-mid">
+      <div class="container p-3">
+        <h1>Stack</h1>
+        <div class="dash-cards">
+          <div class="container text-center">
+            <% if @stack.stack_albums.empty? %>
+              <p>Nothing in your Stack yet...</p>
+              <%= link_to 'Add to Stack', search_path, class: "btn btn-primary" %>
+            <% else %>
+              <% @stack.stack_albums.each do |stack_album| %>
+                <%= render 'shared/stack_album_card', stack_album: stack_album %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
 
 
-<div class="dash-mid">
-  <div class="container p-3">
-    <h1>Stack</h1>
-    <div class="dash-cards">
-      <div class="container text-center">
-        <% if @stack.stack_albums.empty? %>
-          <p>Nothing in your Stack yet...</p>
-          <%= link_to 'Add to Stack', search_path, class: "btn btn-primary" %>
+        <h1>Sets</h1>
+        <div class="dash-cards">
+        <% if @setlists.empty? %>
+          <div class="container text-center">
+            <p>No sets created yet...</p>
+            <%= link_to 'Create new Setlist', new_setlist_path, class: "btn btn-primary" %>
+          </div>
         <% else %>
-          <% @stack.stack_albums.each do |stack_album| %>
-            <%= render 'shared/stack_album_card', stack_album: stack_album %>
+          <% @setlists.each do |setlist| %>
+            <%= render 'shared/setlist_card', setlist: setlist  %>
           <% end %>
         <% end %>
+        </div>
       </div>
     </div>
+  <% else %>
+     <div class="dash-mid">
+      <div class="container p-3">
+        <h1>Stack</h1>
+        <div class="dash-cards">
+          <div class="container text-center">
+            <% if @stack.stack_albums.empty? %>
+              <p>Nothing in Stack yet...</p>
+            <% else %>
+              <% @stack.stack_albums.each do |stack_album| %>
+                <%= render 'shared/stack_album_card', stack_album: stack_album %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
 
 
-    <h1>Sets</h1>
-    <div class="dash-cards">
-    <% if @setlists.empty? %>
-      <div class="container text-center">
-        <p>No sets created yet...</p>
-        <%= link_to 'Create new Setlist', new_setlist_path, class: "btn btn-primary" %>
+        <h1>Sets</h1>
+        <div class="dash-cards">
+        <% if @setlists.empty? %>
+          <div class="container text-center">
+            <p>No sets created yet...</p>
+          </div>
+        <% else %>
+          <% @setlists.each do |setlist| %>
+            <%= render 'shared/setlist_card', setlist: setlist  %>
+          <% end %>
+        <% end %>
+        </div>
       </div>
-    <% else %>
-      <% @setlists.each do |setlist| %>
-        <%= render 'shared/setlist_card', setlist: setlist  %>
-      <% end %>
-    <% end %>
     </div>
-  </div>
+  <% end %>
 </div>

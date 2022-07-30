@@ -20,7 +20,6 @@ class StackAlbumsController < ApplicationController
   end
 
   def find_album
-    raise
     if Album.find_by_spotify_id(params[:album_id])
       @album = Album.find_find_by_spotify_id(params[:album_id])
     else

@@ -21,7 +21,7 @@ class StackAlbumsController < ApplicationController
 
   def find_album
     if Album.find_by_spotify_id(params[:album_id])
-      @album = Album.find_find_by_spotify_id(params[:album_id])
+      @album = Album.find_by_spotify_id(params[:album_id])
     else
       album = RSpotify::Album.find(params[:album_id])
       @album = Album.create(

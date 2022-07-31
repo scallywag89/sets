@@ -74,7 +74,8 @@ class PagesController < ApplicationController
           name: result.name,
           artist: result.artists.first.name,
           cover_image_url: result.album.images.first["url"],
-          type: result.type
+          type: result.type,
+          duration: TimeConvert.milliseconds_to_minutes_and_seconds(result.duration_ms)
         }
       end
     end
@@ -87,7 +88,8 @@ class PagesController < ApplicationController
           name: result.name,
           artist: result.artists.first.name,
           cover_image_url: result.album.images.first["url"],
-          type: result.type
+          type: result.type,
+          duration: TimeConvert.milliseconds_to_minutes_and_seconds(result.duration_ms)
         }
       end
     end

@@ -1,5 +1,6 @@
 <div class="page" style="background-image: url(<%= asset_path 'records.jpg' %>); background-size: cover; background-position: center;">
   <div class="container" id="setlistcontainer">
+    <%= render 'shared/from_your_stack_card', albums: @albums_in_setlist_and_stack %>
     <h2 class="setlistname"><%= @setlist.name.upcase! %></h2>
     <h5 class="setlistcreator">Playlist by <%= current_user.nickname %></h5>
     <ol class="alltracks">
@@ -17,4 +18,3 @@
 </div>
 <div class="bground">
 </div>
-<%= render 'shared/from_your_stack_card', albums: @albums_in_setlist_and_stack %>

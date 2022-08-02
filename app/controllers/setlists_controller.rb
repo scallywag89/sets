@@ -12,6 +12,7 @@ class SetlistsController < ApplicationController
     @albums_in_setlist = @setlist.tracks.map{ |track| track.album }.uniq
     @albums_in_stack = current_user.stack.albums.uniq
     @albums_in_setlist_and_stack = @albums_in_setlist & @albums_in_stack
+    @albums_in_setlist_and_not_stack = @albums_in_setlist - @albums_in_stack
   end
 
   def new

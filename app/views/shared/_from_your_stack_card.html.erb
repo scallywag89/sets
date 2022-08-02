@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="from-stack">
+    <h5>From your Stack:</h5>
+    <ul class="fa-ul">
+      <% @albums_in_setlist_and_stack.each do |album| %>
+        <li><span class="fa-li"><i class="fa-solid fa-record-vinyl"></i></span><%= album.title %> - <%= album.artist %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<%# raise %>

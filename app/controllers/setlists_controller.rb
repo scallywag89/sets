@@ -1,11 +1,13 @@
 class SetlistsController < ApplicationController
   before_action :find_setlist, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_stack_tracks, only: [:show]
 
   def index
     @setlists = Setlist.where(user_id: current_user.id)
   end
 
   def show
+    @stack_spot_ids = @tracks.pluck(:spotify_id)
   end
 
   def new
@@ -47,6 +49,10 @@ class SetlistsController < ApplicationController
 
   def find_setlist
     @setlist = Setlist.find(params[:id])
+  end
+
+  def set_user_stack_tracks
+    @tracks = current_user.stack.tracks
   end
 
   def find_track

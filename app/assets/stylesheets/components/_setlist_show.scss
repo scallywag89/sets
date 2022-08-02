@@ -44,3 +44,10 @@
   height: 100px;
   position: relative;
 }
+
+.stack-cards {
+  position: absolute;
+  left: 90%;
+  top: 25%;
+  z-index: 2;
+}

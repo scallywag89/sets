@@ -5,17 +5,19 @@
     </div>
   </div>
   <div class="container" data-controller="search-filter">
-    <ul class="nav nav-pills">
-      <li class="nav-item" role="presentation">
-        <span class="nav-link active" id="pills-album-tab" data-toggle="pill" href="#pills-album" role="tab" aria-controls="pills-album" aria-selected="true" data-search-filter-target="album" data-action="click->search-filter#filter">Albums</span>
-      </li>
-      <li class="nav-item" role="presentation">
-        <span class="nav-link" id="pills-track-tab" data-toggle="pill" href="#pills-track" role="tab" aria-controls="pills-track" aria-selected="false" data-search-filter-target="track" data-action="click->search-filter#filter">Tracks</span>
-      </li>
-    </ul>
+    <div class="container d-flex justify-content-center pb-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item" role="presentation">
+          <span class="nav-link active" id="pills-album-tab" data-toggle="pill" href="#pills-album" role="tab" aria-controls="pills-album" aria-selected="true" data-search-filter-target="album" data-action="click->search-filter#filter">Albums</span>
+        </li>
+        <li class="nav-item" role="presentation">
+          <span class="nav-link" id="pills-track-tab" data-toggle="pill" href="#pills-track" role="tab" aria-controls="pills-track" aria-selected="false" data-search-filter-target="track" data-action="click->search-filter#filter">Tracks</span>
+        </li>
+      </ul>
+    </div>
     <%# <div class="tab-content" id="pills-tabContent"> %>
       <%# <div class="tab-pane active" id="pills-album" role="tabpanel" aria-labelledby="pills-album-tab"> %>
-        <div class="container d-flex flex-wrap">
+        <div class="container d-flex flex-wrap justify-content-evenly">
         <% @albums.each do |album| %>
           <%= render 'shared/album_card', album: album %>
         <% end %>
@@ -24,7 +26,7 @@
     <%# </div> %>
     <%# <div class="tab-content" id="pills-tabContent"> %>
       <%# <div class="tab-pane" id="pills-track" role="tabpanel" aria-labelledby="pills-track-tab"> %>
-        <div class="container">
+        <div class="container col-6">
           <% @tracks.each do |track| %>
             <%= render 'shared/track_card', track: track %>
           <% end %>

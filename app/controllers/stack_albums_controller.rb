@@ -20,12 +20,12 @@ class StackAlbumsController < ApplicationController
   end
 
   def find_album
-    if Album.find_by_spotify_id(params[:album_id])
-      @album = Album.find_by_spotify_id(params[:album_id])
+    if Album.find_by_spotify_id(params[:spotify_id])
+      @album = Album.find_by_spotify_id(params[:spotify_id])
     else
-      album = RSpotify::Album.find(params[:album_id])
+      album = RSpotify::Album.find(params[:spotify_id])
       @album = Album.create(
-        spotify_id: params[:album_id],
+        spotify_id: params[:spotify_id],
         artist: album.artists.first.name,
         title: album.name,
         year: album.release_date,

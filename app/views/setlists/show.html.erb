@@ -7,7 +7,7 @@
       <% if @stack_spot_ids.include?(s_track.track.spotify_id) %>
         <li id="trkyes"> <%= s_track.track.name %> - <%= s_track.track.album.artist %>
         <a href="/stacks/<%=current_user.stack.id%>"> <i class="fa-solid fa-record-vinyl"></i> </a> </li>
-        <%#= raise %>
+        <%= raise %>
       <% else %>
         <li id="trkno"> <%= s_track.track.name %> - <%= s_track.track.album.artist %> </li>
       <% end %>

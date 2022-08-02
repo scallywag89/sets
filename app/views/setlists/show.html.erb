@@ -3,7 +3,7 @@
     <h2 class="setlistname"><%= @setlist.name.upcase! %></h2>
     <h5 class="setlistcreator">Playlist by <%= current_user.nickname %></h5>
     <ol class="alltracks">
-    <% stack_spot_ids = current_user.stack.tracks.pluck(:spotify_id) %>
+    <% stack_spot_ids = current_user.stack.tracks.pluck(:spotify_id)  %> <%# this should be in controller%>
     <% @setlist.set_tracks.each do |s_track| %>
       <% if stack_spot_ids.include?(s_track.track.spotify_id) %>
       <li id="trkyes"> <%= s_track.track.name %> - <%= s_track.track.album.artist %>
@@ -16,4 +16,4 @@
   </div>
 </div>
 <div class="bground">
-  </div>
+</div>

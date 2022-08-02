@@ -56,8 +56,9 @@ class PagesController < ApplicationController
     end
 
     def nil_search
-      @search = RSpotify::Album.new_releases(limit: 10, offset: 0, country: nil)
-      @albums = @search[0..2].map do |result|
+      @search = RSpotify::Album.new_releases(limit: 20, offset: 0, country: nil)
+      @search.delete_if { |album| album.album_type == "single" }
+      @albums = @search.shuffle.map do |result|
         {
           id: result.id,
           artist: result.artists.first.name,
@@ -68,7 +69,7 @@ class PagesController < ApplicationController
           type: result.type
         }
       end
-      @tracks = @search.shuffle.sample.tracks.map do |result|
+      @tracks = @search.sample.tracks.map do |result|
         {
           spotify_id: result.id,
           name: result.name,

@@ -4,6 +4,8 @@
       <div class="imgBx">
         <% if setlist.setlist_image.attached? %>
           <%= cl_image_tag setlist.setlist_image.key %>
+        <% elsif setlist.tracks.empty? %>
+          <%= cl_image_tag 'app/assets/images/sets_logo.svg' %>
         <% else %>
           <%= image_tag setlist.tracks.first.album.cover_image_url %>
         <% end %>

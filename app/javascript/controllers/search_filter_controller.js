@@ -11,7 +11,7 @@ export default class extends Controller {
       this.trackTarget.classList.remove("active")
       search.forEach((card) => { // remove tracks from display
         if (card.dataset.type == "track") {
-          card.style.display = "none"
+          card.style.display = "none";
         }
         if (card.dataset.type == "album") {
           card.style.display = "inline-block"

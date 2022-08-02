@@ -25,7 +25,9 @@
   <% if @user.id == current_user.id %>
     <div class="dash-mid">
       <div class="container p-3">
-        <h1>Stack</h1>
+        <div class="text-center mt-3">
+          <h1>Stack</h1>
+        </div>
         <div class="dash-cards">
           <div class="container text-center">
             <% if @stack.stack_albums.empty? %>
@@ -39,8 +41,9 @@
           </div>
         </div>
 
-
-        <h1>Sets</h1>
+        <div class="text-center mt-3">
+          <h1>Sets</h1>
+        </div>
         <div class="dash-cards">
         <% if @setlists.empty? %>
           <div class="container text-center">

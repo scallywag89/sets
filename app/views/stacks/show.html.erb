@@ -1,5 +1,9 @@
 <div class="container p-3">
-  <h1>Stack</h1>
+  <div class="text-center">
+    <h1>Stack</h1>
+    <%= link_to 'Search for Albums', search_path, class: "btn btn-success mt-3" %>
+  </div>
+
   <div class="dash-cards">
     <% if @stack_albums.empty? %>
       <p>Nothing in your Stack yet...</p>

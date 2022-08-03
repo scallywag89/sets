@@ -1,0 +1,33 @@
+
+<!-- Modal -->
+<div class="modal fade" id="_<%= album[:id] %>" tabindex="-1" aria-labelledby="setlistShowModal" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="setlistShowModal"><%= album[:artist] %></h1>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <%= image_tag album[:cover_image_url], class: "album-img" %>
+              <div class="pt-3">
+                <h2><%= album[:title] %></h2>
+                <h3><%= album[:year] %></h3>
+              </div>
+            </div>
+            <div class="col-md-6 tracklist">
+              <h2 class="sub-header">Tracklist:</h2>
+              <% (album[:tracks].nil? ? album.tracks : album[:tracks]).each do |track| %>
+                <p><%= track.name %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer mx-auto">
+        <a href="" data-bs-dismiss="modal" class="btn btn-outline-secondary">Back</a>
+      </div>
+    </div>
+  </div>
+</div>

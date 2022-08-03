@@ -51,3 +51,10 @@
   top: 25%;
   z-index: 2;
 }
+
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal-backdrop {
+  display: none;
+}

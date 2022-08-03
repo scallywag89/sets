@@ -2,8 +2,12 @@ class SetTracksController < ApplicationController
   before_action :find_setlist, :find_track, only: [:create]
 
   def create
-    @set_track = SetTrack.new(setlist_id: @setlist.id, track_id: @track.id)
-    @set_track.save
+    if !@setlist.track_ids.include?(@track.id)
+      @set_track = SetTrack.new(setlist_id: @setlist.id, track_id: @track.id)
+      @set_track.save
+    else
+      redirect_to search_path, notice: "You already have this track in your setlist!"
+    end
   end
 
   def destroy

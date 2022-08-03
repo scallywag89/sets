@@ -1,15 +1,19 @@
 <div class="page" style="background-image: url(<%= asset_path 'records.jpg' %>); background-size: cover; background-position: center;">
   <div class="container" id="setlistcontainer">
+    <div class="stack-cards">
+      <%= render 'shared/from_your_stack_card', albums: @albums_in_setlist_and_stack %>
+      <%= render 'shared/not_in_stack_card', albums: @albums_in_setlist_and_not_stack %>
+    </div>
     <h2 class="setlistname"><%= @setlist.name.upcase! %></h2>
     <h5 class="setlistcreator">Playlist by <%= current_user.nickname %></h5>
     <ol class="alltracks">
-    <% stack_spot_ids = current_user.stack.tracks.pluck(:spotify_id)  %> <%# this should be in controller%>
     <% @setlist.set_tracks.each do |s_track| %>
-      <% if stack_spot_ids.include?(s_track.track.spotify_id) %>
-      <li id="trkyes"> <%= s_track.track.name %> - <%= s_track.track.album.artist %>
-      <a href="/stacks/<%=current_user.stack.id%>"> <i class="fa-solid fa-record-vinyl"></i> </a> </li>
+      <% if @stack_spot_ids.include?(s_track.track.spotify_id) %>
+        <li id="trkyes"> <%= s_track.track.name %> - <%= s_track.track.album.artist %>
+        <a href="/stacks/<%=current_user.stack.id%>"> <i class="fa-solid fa-record-vinyl"></i> </a> </li>
+        <%#= raise %>
       <% else %>
-      <li id="trkno"> <%= s_track.track.name %> - <%= s_track.track.album.artist %> </li>
+        <li id="trkno"> <%= s_track.track.name %> - <%= s_track.track.album.artist %> </li>
       <% end %>
     <% end %>
     </ol>

@@ -1,0 +1,21 @@
+.not-from-stack {
+  background-color: $sets-white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 175%;
+  box-shadow: 3px 4px 3px rgb(161, 161, 158);
+
+  h5 {
+    text-align: center;
+    opacity: 0.8;
+    border-bottom: 1px solid $sets-blue;
+    padding: 5px;
+    color: $sets-blue;
+  }
+
+  li {
+    list-style: none;
+    color: $sets-lt-blue;
+    padding: 5px;
+  }
+}

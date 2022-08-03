@@ -2,27 +2,30 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><%= track[:name] %></h5>
+        <h5 class="modal-title" id="exampleModalLabel"><%= track[:artist] %></h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <%= track[:artist] %>
+      <div class="modal-body track-body">
+        <div>
+          <%= track[:name] %>
+        </div>
+        <h2><%= track[:duration] %></h2>
       </div>
-      <div class="modal-footer">
-        <% if @setlists.empty? %>
-          <%= link_to "Create a new set", new_setlist_path(track) %>
-          <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
-
-        <% else %>
-          <%= simple_form_for [@setlist, @set_track] do |f| %>
-            <%= f.input :setlist_id, collection: @setlists, selected: @setlists.first %>
-            <%= f.hidden_field :track_id, value: track[:spotify_id] %>
-            <%= f.submit 'Add to Set', class: "btn btn-outline-secondary", "data-bs-dismiss": "modal"  %>
+      <div class="modal-footer track-footer">
+        <div>
+          <%= link_to "New Set", new_setlist_path(track), class: "btn btn-outline-primary align-top" %>
+        </div>
+        <div>
+          <%= simple_form_for [@setlist, @set_track],
+              wrapper: :inline_form,
+              html: { class: "row row-cols-lg-auto g-2 align-items-baseline" } do |f| %>
+              <%= f.input :setlist_id, collection: @setlists, selected: @setlists.first, label: false %>
+              <%= f.hidden_field :track_id, value: track[:spotify_id] %>
+              <%= f.submit 'Add to Set', class: "btn btn-outline-secondary", "data-bs-dismiss": "modal"  %>
           <% end %>
-          <a href="" data-bs-dismiss="modal" style="color: red;">Back</a>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>

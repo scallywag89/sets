@@ -1,13 +1,19 @@
-<h1>Sets</h1>
-<div class="sets-cards">
-  <% if @setlists.empty? %>
-    <div class="container text-center">
-      <p>No sets created yet...</p>
-      <%= link_to 'Create new Setlist', new_setlist_path, class: "btn btn-primary" %>
-    </div>
-  <% else %>
-    <% @setlists.each do |setlist| %>
-      <%= render 'shared/setlist_card', setlist: setlist %>
+<div class="container mt-3">
+  <div class="text-center">
+    <h1>Sets</h1>
+    <%= link_to 'Create new Setlist', new_setlist_path, class: "btn btn-success mt-3" %>
+  </div>
+  <div class="sets-cards">
+    <% if @setlists.empty? %>
+      <div class="container text-center">
+        <p>No sets created yet...</p>
+        <%= link_to 'Create new Setlist', new_setlist_path, class: "btn btn-success" %>
+      </div>
+    <% else %>
+      <% @setlists.each do |setlist| %>
+        <%= render 'shared/setlist_card', setlist: setlist %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
 </div>

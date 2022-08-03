@@ -1,0 +1,20 @@
+.track-body {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.track-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+
+}

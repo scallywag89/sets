@@ -17,6 +17,9 @@
     <p><%= @user.first_name %> <%= @user.last_name %></p>
     <p><%= @user.favoritors.count %> followers</p>
     <p>Member since... <%= @user.created_at.year %></p>
+    <% if @user.id == current_user.id %>
+      <%= link_to 'Edit Profile', edit_user_registration_path(@user), class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 

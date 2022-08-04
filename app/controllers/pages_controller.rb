@@ -21,8 +21,12 @@ class PagesController < ApplicationController
       nil_search
     else
       @query = params["search"]["query"]
-      search_albums
-      search_tracks
+      if @query == ""
+        nil_search
+      else
+        search_albums
+        search_tracks
+      end
     end
   end
 
@@ -41,7 +45,6 @@ class PagesController < ApplicationController
 
     def search_albums
       @search = RSpotify::Album.search(@query)
-      # raise
       @albums = @search.map do |result|
         {
           id: result.id,

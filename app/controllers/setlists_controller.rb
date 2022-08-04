@@ -43,7 +43,7 @@ class SetlistsController < ApplicationController
 
   def destroy
     @setlist.destroy
-    redirect_to root
+    redirect_to setlists_path
   end
 
   private

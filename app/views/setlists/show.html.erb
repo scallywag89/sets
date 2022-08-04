@@ -4,7 +4,12 @@
       <%= render 'shared/from_your_stack_card', albums: @albums_in_setlist_and_stack %>
       <%= render 'shared/not_in_stack_card', albums: @albums_in_setlist_and_not_stack %>
     </div>
-    <h2 class="setlistname"><%= @setlist.name.upcase! %></h2>
+    <div class="d-flex justify-content-center">
+      <h2 class="setlistname"><%= @setlist.name.upcase %></h2>
+      <% if @setlist.user_id == current_user.id %>
+        <%= link_to "Delete", setlist_path(@setlist), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger align-self-start", id: "setlist-delete" %>
+      <% end %>
+    </div>
     <h5 class="setlistcreator">Playlist by <%= current_user.nickname %></h5>
     <ol class="alltracks">
     <% @setlist.set_tracks.each do |s_track| %>

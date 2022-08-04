@@ -10,7 +10,14 @@
 	</div>
 
 	<div class="card-content" id="album-content">
-			<h2> <%= stack_album.album[:title] %> </h2>
+      <% if stack_album.album[:title].size > 25 %>
+			  <h2 data-toggle="tooltip"
+            data-placement="right"
+            title="<%= stack_album.album[:title] %>">
+            <%= stack_album.album[:title][0, 28] %>... </h2>
+      <% else %>
+        <h2> <%= stack_album.album[:title] %> </h2>
+      <% end %>
       <small class="text-muted"> <%= stack_album.album[:artist] %> </small>
 			<p> <%= stack_album.album[:year] %> </p>
 	</div>

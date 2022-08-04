@@ -6,7 +6,7 @@ class SetTracksController < ApplicationController
       @set_track = SetTrack.new(setlist_id: @setlist.id, track_id: @track.id)
       @set_track.save
     else
-      redirect_to search_path, notice: "You already have this track in your setlist!"
+      redirect_to search_path, notice: "You already have this track in your set!"
     end
   end
 

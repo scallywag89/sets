@@ -14,8 +14,16 @@
         <h2><%= track.duration %></h2>
       </div>
       <div class="modal-footer track-footer">
-      <p>back</p>
-      <p>delete</p>
+        <% if @setlist.user_id == current_user.id %>
+          <%= link_to "Remove from Setlist",
+            set_track_path(track, setlist: @setlist),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-outline-danger"
+          %>
+        <% else %>
+          <a href="" data-bs-dismiss="modal" class="btn btn-outline-secondary">Back</a>
+        <% end %>
       </div>
     </div>
   </div>

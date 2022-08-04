@@ -13,6 +13,7 @@ class SetTracksController < ApplicationController
   def destroy
     find_settrack
     @set_track.destroy
+    redirect_to setlist_path(params[:setlist])
   end
 
   private
@@ -43,6 +44,6 @@ class SetTracksController < ApplicationController
   end
 
   def find_settrack
-    @set_track = SetTrack.where(id: params[:id])
+    @set_track = SetTrack.where(track_id: params[:id], setlist_id: params[:setlist]).first
   end
 end

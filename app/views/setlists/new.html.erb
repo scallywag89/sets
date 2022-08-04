@@ -3,6 +3,6 @@
   <%= f.input :name %>
   <%= f.file_field :setlist_image %>
   <%= f.button :submit, class: "btn-primary" %>
-  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
   <%= f.hidden_field :track, value: params[:spotify_id] %>
+  <%= link_to "Cancel", setlists_path, class: "btn btn-outline-danger" %>
 <% end %>

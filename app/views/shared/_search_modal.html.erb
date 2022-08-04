@@ -18,7 +18,6 @@
               </div>
             </div>
             <div class="col-md-6 tracklist">
-              <%# <h2>Tracklist:</h2> %>
               <% (album[:tracks].nil? ? album.tracks : album[:tracks]).each do |track| %>
                 <p>
                   <a href="<%= track.preview_url %>" target="_blank"

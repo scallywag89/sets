@@ -4,7 +4,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLabel"><%= album[:artist] %></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -12,30 +12,33 @@
             <div class="col-md-6">
               <%= image_tag album[:cover_image_url], class: "album-img" %>
               <div class="pt-3">
-                <h2><%= album[:title] %></h2>
-                <h3><%= album[:year] %></h3>
+                <h2><%= album[:artist] %></h2>
+                <h3><%= album[:title] %></h3>
+                <p><%= album[:year][0,4] %></p>
               </div>
             </div>
             <div class="col-md-6 tracklist">
-              <h2 class="sub-header">Tracklist:</h2>
               <% (album[:tracks].nil? ? album.tracks : album[:tracks]).each do |track| %>
-                <p><%= track.name %></p>
-                <%#= raise %>
+                <p>
+                  <a href="<%= track.preview_url %>" target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="right"
+                    title="Preview Track"><i class="fa-solid fa-circle-play"></i></a>
+                  <%= track.name %>
+                </p>
               <% end %>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer mx-auto">
-      <% if current_user %>
-        <%= link_to "Add to Stack",
-              stack_stack_albums_path(stack_id: Stack.find_by_user_id(current_user.id).id, spotify_id: album[:id]),
-              method: :create,
-              class: "btn btn-outline-secondary",
-              "data-bs-dismiss": "modal"%>
-      <% end %>
-        <%# <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Add to Stack</button> %>
-        <a href="" data-bs-dismiss="modal" class="btn btn-outline-secondary">Back</a>
+        <% if current_user %>
+          <%= link_to "Add to Stack",
+                stack_stack_albums_path(stack_id: Stack.find_by_user_id(current_user.id).id, spotify_id: album[:id]),
+                method: :create,
+                class: "btn btn-outline-success",
+                "data-bs-dismiss": "modal"%>
+        <% end %>
       </div>
     </div>
   </div>

@@ -18,7 +18,8 @@ class Album < ApplicationRecord
         Track.create(
           spotify_id: track.id,
           name: track.name,
-          album: self
+          album: self,
+          duration: TimeConvert.milliseconds_to_minutes_and_seconds(track.duration_ms)
         )
       end
     end

@@ -6,9 +6,9 @@ class StackAlbumsController < ApplicationController
     if !current_user.stack.album_ids.include?(@album.id)
       @stack_album = StackAlbum.new(stack_id: @stack.id, album_id: @album.id)
       @stack_album.save
-      redirect_to search_path, notice: "Album added to stack!"
+      redirect_to request.referer, alert: "Album added to stack!"
     else
-      redirect_to search_path, notice: "You already have this album in your stack!"
+      redirect_to request.referer, alert: "You already have this album in your stack!"
     end
   end
 

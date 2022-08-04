@@ -12,3 +12,27 @@
   background-color: $sets-off-white;
   border-radius: 0.5rem;
 }
+
+.modal-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.modal-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid $sets-off-white;
+}
+
+.modal-body {
+  p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  h2 {
+    color: $sets-blue;
+  }
+  h3 {
+    opacity: 0.7;
+    color: $sets-blue;
+  }
+}

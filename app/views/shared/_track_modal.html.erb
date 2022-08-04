@@ -18,7 +18,7 @@
           <%= link_to "New Set", new_setlist_path(track), class: "btn btn-outline-primary align-top" %>
         </div>
         <div>
-        <% if !@setlists.empty? %>
+        <% unless @setlists.empty? %>
           <%= simple_form_for [@setlist, @set_track],
               wrapper: :inline_form,
               html: { class: "row row-cols-lg-auto g-2 align-items-baseline" } do |f| %>

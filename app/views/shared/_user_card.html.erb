@@ -1,28 +1,38 @@
 <div class="user-card">
+  <div class="user-img">
     <% if user.avatar.attached? %>
-      <%= image_tag user.avatar, class: "avatar-mega" %>
+      <a href="<%= dashboard_path(user) %>"> <%= image_tag user.avatar, class: "avatar-mega" %> </a>
     <% else %>
-      <%= image_tag "sets_logo.svg", class: "avatar-mega" %>
+      <a href="<%= dashboard_path(user) %>"> <%= image_tag "sets_logo.svg", class: "avatar-mega" %> </a>
     <% end %>
-	<h3><%= user.nickname %></h3>
-	<div class="btn-container">
-    <%= link_to "Profile", dashboard_path(user), class: "btn btn-secondary"%>
-	</div>
-  <div class="p-3">
-    <p><%= user.favoritors.count %> followers</p>
-      <%= link_to toggle_favorite_user_path(user), remote: true, method: :post do %>
-        <%= render 'users/like_button', user: user %>
-      <% end %>
   </div>
-  <div>
-    <p><% if user.setlists.exists? %>
+  <div class="user-info">
+    <div class="user-inner">
+      <h2><%= user.nickname %></h2>
+
+      <div>
+        <% if user.stack.albums.exists? %>
+          <p><%= user.stack.albums.count %> albums</p>
+        <% else %>
+          <p>No albums in their stack...</p>
+        <% end %>
+        <% if user.setlists.exists? %>
           <% if user.setlists.count == 1 %>
-            <%= user.setlists.count %> set</p>
+            <p><%= user.setlists.count %> set</p>
           <% else %>
-            <%= user.setlists.count %> sets</p>
+            <p><%= user.setlists.count %> sets</p>
           <% end %>
-      <% else %>
-        No sets created yet...
-      <% end %>
+        <% else %>
+          <p> No sets created yet... </p>
+        <% end %>
+      </div>
+    </div>
+    <div class="user-social">
+      <p><%= user.favoritors.count %> followers
+        <%= link_to toggle_favorite_user_path(user), remote: true, method: :post do %>
+          <%= render 'users/like_button', user: user %>
+        <% end %>
+      </p>
+    </div>
   </div>
 </div>

@@ -1,14 +1,16 @@
 <div class="card-product m-3 search-card justify-content" data-type="<%= track[:type] %>">
   <img src="<%= track[:cover_image_url] %>" />
-  <div class="card-product-infos p-2">
+  <div class="card-product-infos">
     <h2><%= track[:name] %></h2>
     <p><%= track[:artist] %></p>
-    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#_<%= track[:spotify_id] %>">
-          View Track
-    </button>
+    <div class="mt-2">
+      <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#_<%= track[:spotify_id] %>">
+            View Track
+      </button>
+    </div>
   </div>
   <div class="ms-auto mb-auto p-3">
-    <p><%= track[:duration] %></p>
+    <h3><%= track[:duration] %></h3>
   </div>
 </div>
   <%= render 'shared/track_modal', track: track %>

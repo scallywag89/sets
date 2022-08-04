@@ -16,7 +16,12 @@
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
-  // margin: 0;
+}
+
+.card-product h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
 }
 
 .card-product p {
@@ -29,4 +34,5 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  margin-left: 8px;
 }

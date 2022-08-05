@@ -21,7 +21,7 @@
   <input name="user-nav" type="radio" class="about-radio" id="about" />
   <div class="page about-page">
     <div class="page-contents mt-3">
-      <h1 class="text-center">Following</h1>
+      <h1 class="text-center p-3 mt-0">Following</h1>
       <div class="user-cards">
         <% @favorite_users.shuffle.each do |user| %>
           <% unless user.id == current_user.id %>

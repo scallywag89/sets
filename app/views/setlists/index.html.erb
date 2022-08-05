@@ -7,7 +7,6 @@
     <% if @setlists.empty? %>
       <div class="container text-center">
         <p>No sets created yet...</p>
-        <%= link_to 'Create new Setlist', new_setlist_path, class: "btn btn-success" %>
       </div>
     <% else %>
       <% @setlists.each do |setlist| %>

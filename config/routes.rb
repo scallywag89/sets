@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :setlists do
     resources :set_tracks, only: [:create]
   end
-  resources :set_tracks, only: [:destroy]
+  resources :set_tracks, only: [:create, :destroy]
 
   resources :users, only: [:index] do
     member do

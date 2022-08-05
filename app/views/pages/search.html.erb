@@ -17,7 +17,14 @@
     </div>
     <%# <div class="tab-content" id="pills-tabContent"> %>
       <%# <div class="tab-pane active" id="pills-album" role="tabpanel" aria-labelledby="pills-album-tab"> %>
-        <div class="container d-flex flex-wrap justify-content-evenly">
+      <div id="sresults">
+      <% if params["search"].nil? %>
+      <h3 id="results"> Trending This Week... </h3>
+      <% else %>
+      <h3 id="results"> Search Results for <%= params["search"]["query"] %>... </h3>
+      <% end %>
+      </div>
+        <div class="container d-flex flex-wrap justify-content-evenly" id="albumsearch">
         <% @albums.each do |album| %>
           <%= render 'shared/album_card', album: album %>
         <% end %>

@@ -18,8 +18,8 @@ class SetTracksController < ApplicationController
 
   private
 
-  def set_tracks_params
-    params.require(:set_tracks).permit(:track_id, :setlist_id)
+  def set_track_params
+    params.require(:set_track).permit(:track_id, :setlist_id)
   end
 
   def find_setlist

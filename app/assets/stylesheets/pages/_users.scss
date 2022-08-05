@@ -2,7 +2,6 @@
   display: grid;
   height: 100%;
   width: 100%;
-  overflow: hidden;
   grid-template-rows: 50px 1fr;
   grid-template-columns: 1fr 1fr;
 }
@@ -76,6 +75,7 @@ input[type="radio"]:checked + .page{
   max-width: 100%;
   width: 1440px;
   margin: 0 auto;
+  // height: 100vh;
 }
 
 .user-cards {

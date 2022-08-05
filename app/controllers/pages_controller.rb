@@ -15,7 +15,6 @@ class PagesController < ApplicationController
   end
 
   def search
-    @setlist = Setlist.first
     @set_track = SetTrack.new
     if params["search"].nil?
       nil_search

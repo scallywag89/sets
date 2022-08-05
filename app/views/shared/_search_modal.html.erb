@@ -20,10 +20,6 @@
             <div class="col-md-6 tracklist">
               <% (album[:tracks].nil? ? album.tracks : album[:tracks]).each do |track| %>
                 <p>
-                  <a href="<%= track.preview_url %>" target="_blank"
-                    data-toggle="tooltip"
-                    data-placement="right"
-                    title="Preview Track"><i class="fa-solid fa-circle-play"></i></a>
                   <%= track.name %>
                 </p>
               <% end %>

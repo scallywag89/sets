@@ -3,9 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><%= track[:artist] %></h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body track-body">
         <div>
@@ -18,6 +16,7 @@
           <%= link_to "New Set", new_setlist_path(track), class: "btn btn-outline-primary align-top" %>
         </div>
         <div>
+        <% unless @setlists.nil? %>
           <%= simple_form_for [@setlist, @set_track],
               wrapper: :inline_form,
               html: { class: "row row-cols-lg-auto g-2 align-items-baseline" } do |f| %>
@@ -25,6 +24,7 @@
               <%= f.hidden_field :track_id, value: track[:spotify_id] %>
               <%= f.submit 'Add to Set', class: "btn btn-outline-secondary", "data-bs-dismiss": "modal"  %>
           <% end %>
+        <% end %>
         </div>
       </div>
     </div>

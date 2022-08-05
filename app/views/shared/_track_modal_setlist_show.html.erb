@@ -1,0 +1,30 @@
+<div class="modal fade" id="_<%= track[:spotify_id] %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= track.album.artist %></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body track-body">
+        <div>
+          <%= track[:name] %>
+        </div>
+        <h2><%= track.duration %></h2>
+      </div>
+      <div class="modal-footer track-footer">
+        <% if @setlist.user_id == current_user.id %>
+          <%= link_to "Remove from Setlist",
+            set_track_path(track, setlist: @setlist),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-outline-danger"
+          %>
+        <% else %>
+          <a href="" data-bs-dismiss="modal" class="btn btn-outline-secondary">Back</a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

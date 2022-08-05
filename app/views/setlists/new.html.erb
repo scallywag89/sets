@@ -1,8 +1,21 @@
-<%= simple_form_for(@setlist, method: :post, url: setlists_path) do |f| %>
+<div class="row">
+  <div class="col-4 p-4 my-auto mx-auto">
+    <div class="container">
 
-  <%= f.input :name %>
-  <%= f.file_field :setlist_image %>
-  <%= f.button :submit, class: "btn-primary" %>
-  <%= f.hidden_field :track, value: params[:spotify_id] %>
-  <%= link_to "Cancel", setlists_path, class: "btn btn-outline-danger" %>
-<% end %>
+      <h2 class="mb-3">Create a New Set!</h2>
+        <%= simple_form_for(@setlist, method: :post, url: setlists_path) do |f| %>
+
+          <%= f.input :name %>
+          <%= f.input :setlist_image, as: :file,
+                      label: false,
+                      class: "form-control",
+                      hint: ("upload a cover photo for your set") %>
+            <%= f.button :submit, class: "btn-success" %>
+          <%= f.hidden_field :track, value: params[:spotify_id] %>
+          <%= link_to "Cancel", setlists_path, class: "btn btn-outline-danger" %>
+        <% end %>
+
+
+    </div>
+  </div>
+</div>

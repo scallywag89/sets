@@ -1,9 +1,10 @@
 .layout{
   display: grid;
-  height: 600px;
+  height: 100%;
   width: 100%;
   grid-template-rows: 50px 1fr;
   grid-template-columns: 1fr 1fr;
+  background-color: #01517b;
 }
 
 input[type="radio"]{
@@ -38,7 +39,7 @@ label.user-nav{
 }
 
 .page{
-  background-color: $sets-lt-blue !important;
+  background-color: $sets-off-white !important;
   grid-column-start: 1;
   grid-row-start: 2;
   grid-column-end: span 3;

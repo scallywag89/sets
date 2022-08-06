@@ -32,6 +32,7 @@
       </ol>
       <div id="somecontainer">
       <% if @setlist.user_id == current_user.id %>
+        <%= link_to "Add Tracks", search_path, class: "btn btn-outline-success" %>
         <%= link_to "Delete", setlist_path(@setlist), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger align-self-start", id: "setlist-delete" %>
       <% end %>
       </div>

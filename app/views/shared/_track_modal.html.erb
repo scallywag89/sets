@@ -22,7 +22,7 @@
               html: { class: "row row-cols-lg-auto g-2 align-items-baseline" } do |f| %>
               <%= f.input :setlist_id, collection: @setlists, selected: @setlists.first, label: false %>
               <%= f.hidden_field :track_id, value: track[:spotify_id] %>
-              <%= f.submit 'Add to Set', class: "btn btn-outline-secondary", "data-bs-dismiss": "modal"  %>
+              <%= f.submit 'Add to Set', class: "btn btn-outline-success", "data-bs-dismiss": "modal"  %>
           <% end %>
         <% end %>
         </div>

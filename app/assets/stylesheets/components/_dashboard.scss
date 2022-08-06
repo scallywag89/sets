@@ -2,17 +2,23 @@
   height: 540px;
 
   p {
-    color: #fff;
+    color: black;
     font-size: 1.5em;
     font-weight: bold;
     text-align: center;
+
   }
   h2 {
-    color: #fff;
-    font-size: 3rem;
+    color: black;
+    font-size: 4rem;
     font-weight: bold;
     text-align: center;
+    top: 30px;
   }
+}
+
+#nname {
+  padding-top: 20px;
 }
 .underline {
   background-color: $sets-red;
@@ -33,4 +39,19 @@
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#editbtn {
+  position: relative;
+  left: 1300px;
+  top: 30px;
+}
+
+#aboutme {
+  background-color: rgba(255, 246, 234, 0.9);
+  top: 50%;
+  left: 50%;
+  height: 400px;
+  width: 800px;
+  border-radius: 400px 400px 0 0;
 }

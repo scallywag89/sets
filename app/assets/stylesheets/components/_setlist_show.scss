@@ -1,17 +1,25 @@
-.page {
+.setlist_show_page {
   position: relative;
+  background-color: $sets-white;
 }
 
+
 #setlistcontainer {
-  margin-top: 100px;
-  background-color: $sets-white;
+  margin-top: 50px;
+  background-color: white;
   border-radius: 5px;
   padding: 10px;
-  width: 50%;
+  width: 60%;
   box-shadow: 3px 4px 3px rgb(161, 161, 158);
   z-index: 1;
   position: relative;
   bottom: -70px;
+  left: 30px;
+}
+
+.elementscont {
+  display: flex;
+  width: 100%;
 }
 
 .setlistcreator {
@@ -29,6 +37,11 @@
   color: $sets-blue;
 }
 
+#somecontainer {
+  text-align: center;
+  margin-top: 100px;
+}
+
 #trkyes {
   color: $sets-blue;
   padding: 5px;
@@ -40,16 +53,18 @@
 }
 
 .bground {
-  // background-color: $sets-white;
-  height: 100px;
+  background-color: $sets-white;
+  height: 300px;
   position: relative;
 }
 
 .stack-cards {
-  position: absolute;
-  left: 90%;
-  top: 25%;
-  z-index: 2;
+  margin-top: 85px;
+  position: relative;
+  // left: 90%;
+  // top: 25%;
+  z-index: 1;
+  left: 100px;
 }
 
 .modal {
@@ -57,7 +72,4 @@
 }
 .modal-backdrop {
   display: none;
-}
-
-#setlist-delete {
 }

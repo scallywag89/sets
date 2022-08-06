@@ -1,8 +1,5 @@
 <div class="dash-top"
      style="background-image: url(<%= asset_path 'gradient.jpg' %>); background-size: cover; background-position: center;">
-  <%# <% if @user.id == current_user.id %>
-      <%# <%= link_to 'Edit Profile', edit_user_registration_path(@user), class: "btn btn-primary", id: "editbtn"%>
-    <%# <% end %>
   <div class="container pt-5 pb-3">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -17,7 +14,7 @@
   <div class="container text-center" id="aboutme">
     <h2 id="nname"><%= @user.nickname %></h2>
     <div class="m-3 mx-auto underline"></div>
-
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
     <p><%= @user.favoritors.count %> followers</p>
     <p>Member since... <%= @user.created_at.year %></p>
   </div>

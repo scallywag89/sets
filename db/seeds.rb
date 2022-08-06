@@ -40,7 +40,7 @@ if response.upcase == "Y"
   puts "Generating  Albums (with tracks)..."
     search_queries = ["SOUR", "Future Nostalgia", "Mansion Air", "Glass Animals", "Gorillaz", "Madonna", "Taylor Swift"]
     search_queries.each do |query|
-      search = RSpotify::Album.search(query)
+      search = RSpotify::Album.search(query)[0..5]
       search.each do |result|
         Album.create(
           spotify_id: result.id,

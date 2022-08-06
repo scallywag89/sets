@@ -30,6 +30,7 @@
               <%= link_to "My Stack", stack_path(current_user), class: "dropdown-item" %>
               <%= link_to "My Sets", setlists_path, class: "dropdown-item" %>
               <%= link_to "My Profile", dashboard_path(current_user) , class: "dropdown-item" %>
+              <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
             </div>
           </li>

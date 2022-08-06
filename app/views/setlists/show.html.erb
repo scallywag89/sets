@@ -7,7 +7,11 @@
     <div class="d-flex justify-content-center">
       <h2 class="setlistname"><%= @setlist.name.upcase %></h2>
     </div>
+    <% if @setlist.user_id == current_user.id %>
     <h5 class="setlistcreator">Playlist by <%= current_user.nickname %></h5>
+    <% else %>
+    <h5 class="setlistcreator">Playlist by <%= @setlist.user.nickname %></h5>
+    <% end %>
     <ol class="alltracks">
       <% @setlist.set_tracks.each do |s_track| %>
         <% if @stack_spot_ids.include?(s_track.track.spotify_id) %>

@@ -1,39 +1,14 @@
-<div class="layout">
-  <input name="user-nav" type="radio" class="nav home-radio" id="home" checked="checked" />
-  <div class="page home-page">
-    <div class="page-contents mt-3">
-      <%# <h1 class="text-center p-3" id="trendingdj">Trending DJ's</h1> %>
-        <div class="user-cards">
-          <% @users.each do |user| %>
-            <% unless user.id == current_user.id %>
-              <%= render 'shared/user_card', user: user %>
-            <% end %>
-          <% end %>
-        </div>
-    </div>
+<div class="container">
+  <div class="m-3">
+    <h1 class="text-center">LOCAL DJs</h1>
   </div>
-  <label class="user-nav" for="home">
-    <span>
-      Trending
-    </span>
-  </label>
+  <div class="d-flex justify-content-center m-3"><%= link_to 'Following', following_path, class: 'btn btn-lg btn-outline-primary' %></div>
 
-  <input name="user-nav" type="radio" class="about-radio" id="about" />
-  <div class="page about-page">
-    <div class="page-contents mt-3">
-      <%# <h1 class="text-center p-3 mt-0" id="followingdj">Following</h1> %>
-      <div class="user-cards">
-        <% @favorite_users.shuffle.each do |user| %>
-          <% unless user.id == current_user.id %>
-            <%= render 'shared/user_card', user: user %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+  <div class="user-cards">
+    <% @users.each do |user| %>
+      <% unless user.id == current_user.id %>
+        <%= render 'shared/user_card', user: user %>
+      <% end %>
+    <% end %>
   </div>
-  <label class="user-nav" for="about">
-    <span>
-      Following
-    </span>
-    </label>
 </div>

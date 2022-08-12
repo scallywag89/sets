@@ -4,15 +4,11 @@ class UsersController < ApplicationController
 
   def show; end
 
-  # def index
-  #   users_favoritors_hash = User.all.each_with_object({}) do |user, hash|
-  #     hash[user] = user.favoritors.count
-  #   end
-  #   @users = users_favoritors_hash.sort_by { |y| y.last }.reverse.map { |user| user.first }
-  #   @favorite_users = current_user.favorited_by_type('User')
-  # end
   def index
     @users = User.all.sort_by { |user| user.favoritors.count }.reverse
+  end
+
+  def following
     @favorite_users = current_user.favorited_by_type('User')
   end
 

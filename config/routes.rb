@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'dashboard/:id', to: 'pages#dashboard', as: :dashboard
   get 'search', to: 'pages#search'
+  get 'following', to: 'users#following', as: :following
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :stacks, only: [:show, :edit, :update] do
     resources :stack_albums, only: [:create]

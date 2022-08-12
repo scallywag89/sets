@@ -15,56 +15,24 @@
         </li>
       </ul>
     </div>
-    <%# <div class="tab-content" id="pills-tabContent"> %>
-      <%# <div class="tab-pane active" id="pills-album" role="tabpanel" aria-labelledby="pills-album-tab"> %>
-      <div id="sresults">
-      <% if params["search"].nil? %>
-      <h3 id="results"> Trending This Week... </h3>
-      <% else %>
-      <h3 id="results"> Search Results for <%= params["search"]["query"] %>... </h3>
-      <% end %>
-      </div>
-        <div class="container d-flex flex-wrap justify-content-evenly" id="albumsearch">
-        <% @albums.each do |album| %>
-          <%= render 'shared/album_card', album: album %>
+    <div class="d-flex justify-content-center">
+      <div class="m-3">
+        <% if params["search"].nil? %>
+          <h3> Trending This Week... </h3>
+        <% else %>
+          <p> Search Results for <%= params["search"]["query"] %>: </p>
         <% end %>
-        </div>
-      <%# </div> %>
-    <%# </div> %>
-    <%# <div class="tab-content" id="pills-tabContent"> %>
-      <%# <div class="tab-pane" id="pills-track" role="tabpanel" aria-labelledby="pills-track-tab"> %>
-        <div class="container col-6">
-          <% @tracks.each do |track| %>
-            <%= render 'shared/track_card', track: track %>
-          <% end %>
-          </div>
-        <%# </div> %>
-      <%# </div> %>
-    <%# </div> %>
+      </div>
+    </div>
+    <div class="container d-flex flex-wrap justify-content-evenly">
+      <% @albums.each do |album| %>
+        <%= render 'shared/album_card', album: album %>
+      <% end %>
+    </div>
+    <div class="container col-6">
+      <% @tracks.each do |track| %>
+        <%= render 'shared/track_card', track: track %>
+      <% end %>
+    </div>
   </div>
-
-
-
-
-
-
-
-
-  <%# <div class="row d-flex justify-content-center"> %>
-      <%# if @albums %>
-        <%# @albums.each do |album| %>
-          <%#= render 'shared/album_card', album: album %>
-          <%# raise %>
-        <%# end %>
-      <%# end %>
-      <%# raise %>
-      <%# if @tracks %>
-        <%# <div class="col-6"> %>
-          <%# @tracks.each do |track| %>
-            <%#= render 'shared/track_card', track: track %>
-            <%# raise %>
-          <%# end %>
-        <%# </div> %>
-      <%# end %>
-  <%# </div> %>
 </div>

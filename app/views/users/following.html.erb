@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="m-3">
+    <h1 class="text-center">FOLLOWED DJs</h1>
+  </div>
+  <div class="d-flex justify-content-center m-3"><%= link_to 'Community', users_path, class: 'btn btn-lg btn-outline-primary' %></div>
+
+  <div class="user-cards">
+    <% @favorite_users.shuffle.each do |user| %>
+      <% unless user.id == current_user.id %>
+        <%= render 'shared/user_card', user: user %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
